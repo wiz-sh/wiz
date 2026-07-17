@@ -57,80 +57,87 @@ test("every documented Wiz example checks, formats, lints and emits valid Bash",
     }
 }, 30_000);
 
-test("the compiler-target example emits every target and executes available shells", async () => {
-    const root = await temporaryDirectory();
+// PowerShell has a noticeably slower cold start on Linux CI runners.
+const compilerTargetTimeout = 30_000;
 
-    roots.push(root);
+test(
+    "the compiler-target example emits every target and executes available shells",
+    async () => {
+        const root = await temporaryDirectory();
 
-    await cp(
-        join(import.meta.dir, "../../../examples/wiz/compiler-targets"),
-        root,
-        { recursive: true },
-    );
+        roots.push(root);
 
-    const home = join(root, ".home");
-
-    const targets = [
-        { name: "bash", executable: "bash", extension: "sh" },
-        { name: "zsh", executable: "zsh", extension: "zsh" },
-        { name: "sh", executable: "sh", extension: "sh" },
-        { name: "fish", executable: "fish", extension: "fish" },
-        { name: "powershell", executable: "pwsh", extension: "ps1" },
-        { name: "cmd", executable: "cmd.exe", extension: "cmd" },
-    ] as const;
-
-    for (const target of targets) {
-        await rm(join(root, "dist"), { recursive: true, force: true });
-
-        const build = await runCli(
+        await cp(
+            join(import.meta.dir, "../../../examples/wiz/compiler-targets"),
             root,
-            ["c", "build", "--target", target.name],
-            home,
+            { recursive: true },
         );
 
-        expect(build.code, `${target.name} build: ${build.stderr}`).toBe(0);
+        const home = join(root, ".home");
 
-        const executable = Bun.which(target.executable);
+        const targets = [
+            { name: "bash", executable: "bash", extension: "sh" },
+            { name: "zsh", executable: "zsh", extension: "zsh" },
+            { name: "sh", executable: "sh", extension: "sh" },
+            { name: "fish", executable: "fish", extension: "fish" },
+            { name: "powershell", executable: "pwsh", extension: "ps1" },
+            { name: "cmd", executable: "cmd.exe", extension: "cmd" },
+        ] as const;
 
-        if (executable === null) {
-            continue;
+        for (const target of targets) {
+            await rm(join(root, "dist"), { recursive: true, force: true });
+
+            const build = await runCli(
+                root,
+                ["c", "build", "--target", target.name],
+                home,
+            );
+
+            expect(build.code, `${target.name} build: ${build.stderr}`).toBe(0);
+
+            const executable = Bun.which(target.executable);
+
+            if (executable === null) {
+                continue;
+            }
+
+            const script = join(root, "dist", `main.${target.extension}`);
+
+            const syntax =
+                target.name === "powershell"
+                    ? Bun.spawnSync([
+                          executable,
+                          "-NoLogo",
+                          "-NoProfile",
+                          "-NonInteractive",
+                          "-Command",
+                          `$null = [scriptblock]::Create((Get-Content -Raw -LiteralPath '${script.replaceAll("'", "''")}'))`,
+                      ])
+                    : Bun.spawnSync([executable, "-n", script]);
+
+            expect(syntax.exitCode, `${target.name} syntax`).toBe(0);
+
+            const execution = Bun.spawnSync(
+                target.name === "powershell"
+                    ? [
+                          executable,
+                          "-NoLogo",
+                          "-NoProfile",
+                          "-NonInteractive",
+                          "-File",
+                          script,
+                      ]
+                    : [executable, script],
+                { cwd: root },
+            );
+
+            expect(execution.exitCode, `${target.name} execution`).toBe(0);
+
+            expect(execution.stdout.toString()).toBe("Target: portable\n");
         }
-
-        const script = join(root, "dist", `main.${target.extension}`);
-
-        const syntax =
-            target.name === "powershell"
-                ? Bun.spawnSync([
-                      executable,
-                      "-NoLogo",
-                      "-NoProfile",
-                      "-NonInteractive",
-                      "-Command",
-                      `$null = [scriptblock]::Create((Get-Content -Raw -LiteralPath '${script.replaceAll("'", "''")}'))`,
-                  ])
-                : Bun.spawnSync([executable, "-n", script]);
-
-        expect(syntax.exitCode, `${target.name} syntax`).toBe(0);
-
-        const execution = Bun.spawnSync(
-            target.name === "powershell"
-                ? [
-                      executable,
-                      "-NoLogo",
-                      "-NoProfile",
-                      "-NonInteractive",
-                      "-File",
-                      script,
-                  ]
-                : [executable, script],
-            { cwd: root },
-        );
-
-        expect(execution.exitCode, `${target.name} execution`).toBe(0);
-
-        expect(execution.stdout.toString()).toBe("Target: portable\n");
-    }
-});
+    },
+    compilerTargetTimeout,
+);
 
 test("the bundling example emits one compact standalone script", async () => {
     const root = await temporaryDirectory();
