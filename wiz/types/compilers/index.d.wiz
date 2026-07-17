@@ -1,0 +1,5 @@
+source "./c.d.wiz"
+source "./go.d.wiz"
+source "./java.d.wiz"
+source "./rust.d.wiz"
+source "./zig.d.wiz"

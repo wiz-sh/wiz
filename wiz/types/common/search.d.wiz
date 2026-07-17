@@ -1,0 +1,145 @@
+## Searches text using GNU, BSD, or POSIX grep behavior.
+declare command grep {
+    overload(pattern: string, ...files: path[]): stream
+    overload(...files: path[]): stream
+
+    option -A, --after-context <lines: int>
+    option -B, --before-context <lines: int>
+    option -C, --context <lines: int>
+    option -D, --devices <action: "read" | "skip">
+    option -d, --directories <action: "read" | "recurse" | "skip">
+    option -e, --regexp <pattern: string> repeatable
+    option -f, --file <file: file> repeatable
+    option -m, --max-count <count: int>
+    option --binary-files <mode: "binary" | "text" | "without-match">
+    option --color <mode: "always" | "auto" | "never">
+    option --exclude <glob: string> repeatable
+    option --exclude-dir <glob: string> repeatable
+    option --exclude-from <file: file> repeatable
+    option --include <glob: string> repeatable
+    option --label <label: string>
+
+    option -a, --text
+    option -b, --byte-offset
+    option -c, --count
+    option -E, --extended-regexp conflicts(--fixed-strings, --basic-regexp)
+    option -F, --fixed-strings conflicts(--extended-regexp, --basic-regexp)
+    option -G, --basic-regexp conflicts(--extended-regexp, --fixed-strings)
+    option -H, --with-filename conflicts(--no-filename)
+    option -h, --no-filename conflicts(--with-filename)
+    option -I
+    option -i, --ignore-case
+    option -L, --files-without-match conflicts(--files-with-matches)
+    option -l, --files-with-matches conflicts(--files-without-match)
+    option -n, --line-number
+    option -o, --only-matching
+    option -P, --perl-regexp
+    option -q, --quiet
+    option -R, --dereference-recursive
+    option -r, --recursive
+    option -s, --no-messages
+    option -U, --binary
+    option -v, --invert-match
+    option -w, --word-regexp
+    option -x, --line-regexp
+    option -Z, --null
+    option -z, --null-data
+    option --line-buffered
+}
+
+## Searches paths recursively using ripgrep's regex, glob, type, and output controls.
+declare command rg {
+    overload(pattern: string, ...paths: path[]): stream
+    overload(...paths: path[]): stream
+
+    option -A, --after-context <lines: int>
+    option -B, --before-context <lines: int>
+    option -C, --context <lines: int>
+    option -e, --regexp <pattern: string> repeatable
+    option -f, --file <file: file> repeatable
+    option -g, --glob <glob: string> repeatable
+    option -j, --threads <count: int>
+    option -M, --max-columns <columns: int>
+    option -m, --max-count <count: int>
+    option -r, --replace <replacement: string>
+    option -t, --type <type: string> repeatable
+    option -T, --type-not <type: string> repeatable
+    option --color <mode: "always" | "ansi" | "auto" | "never">
+    option --colors <specification: string> repeatable
+    option --context-separator <separator: string>
+    option --dfa-size-limit <size: string>
+    option --encoding <encoding: string>
+    option --engine <engine: "auto" | "default" | "pcre2">
+    option --glob-case-insensitive
+    option --iglob <glob: string> repeatable
+    option --ignore-file <file: file> repeatable
+    option --max-depth <depth: int>
+    option --max-filesize <size: string>
+    option --path-separator <separator: string>
+    option --pre <command: string>
+    option --pre-glob <glob: string> repeatable requires(--pre)
+    option --regex-size-limit <size: string>
+    option --sort <key: "accessed" | "created" | "modified" | "none" | "path">
+    option --sortr <key: "accessed" | "created" | "modified" | "none" | "path">
+    option --type-add <definition: string> repeatable
+    option --type-clear <type: string> repeatable
+
+    option -0, --null
+    option -a, --text
+    option -b, --byte-offset
+    option -c, --count
+    option -F, --fixed-strings
+    option -H, --with-filename conflicts(--no-filename)
+    option -h, --help
+    option -i, --ignore-case conflicts(--case-sensitive, --smart-case)
+    option -l, --files-with-matches conflicts(--files-without-match)
+    option -L, --follow
+    option -N, --no-line-number conflicts(--line-number)
+    option -n, --line-number conflicts(--no-line-number)
+    option -o, --only-matching
+    option -P, --pcre2
+    option -p, --pretty
+    option -q, --quiet
+    option -S, --smart-case conflicts(--ignore-case, --case-sensitive)
+    option -s, --case-sensitive conflicts(--ignore-case, --smart-case)
+    option -U, --multiline
+    option -u, --unrestricted repeatable
+    option -v, --invert-match
+    option -w, --word-regexp
+    option -x, --line-regexp
+    option -z, --search-zip
+    option --binary
+    option --block-buffered conflicts(--line-buffered)
+    option --column
+    option --count-matches
+    option --crlf
+    option --debug
+    option --files
+    option --files-without-match conflicts(--files-with-matches)
+    option --heading conflicts(--no-heading)
+    option --hidden
+    option --json
+    option --line-buffered conflicts(--block-buffered)
+    option --mmap
+    option --multiline-dotall requires(--multiline)
+    option --no-config
+    option --no-heading conflicts(--heading)
+    option --no-ignore
+    option --no-ignore-dot
+    option --no-ignore-exclude
+    option --no-ignore-files
+    option --no-ignore-global
+    option --no-ignore-parent
+    option --no-ignore-vcs
+    option --no-messages
+    option --null-data
+    option --one-file-system
+    option --passthru
+    option --pcre2-version
+    option --stats
+    option --stop-on-nonmatch
+    option --trace
+    option --trim
+    option --type-list
+    option --vimgrep
+}

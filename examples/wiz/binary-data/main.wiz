@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# The payload contains two NUL bytes, but no shell variable ever contains them.
+bytes capture payload -- printf 'header\0body\0tail'
+
+printf 'Captured bytes: '
+bytes length "$payload"
+
+bytes save "$payload" "./dist/payload.bin"
+bytes read restored "./dist/payload.bin"
+bytes emit "$restored" > "./dist/copied.bin"
+
+bytes dispose "$payload"
+bytes dispose "$restored"

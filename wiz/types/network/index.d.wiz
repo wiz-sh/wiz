@@ -1,0 +1,6 @@
+source "./dns.d.wiz"
+source "./diagnostics.d.wiz"
+source "./remote.d.wiz"
+source "./scanning.d.wiz"
+source "./sockets.d.wiz"
+source "./transfer.d.wiz"

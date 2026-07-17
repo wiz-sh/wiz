@@ -1,0 +1,8 @@
+# Desktop openers and clipboard tools.
+
+declare command open(option?: "-a" | "-b" | "-e" | "-R" | "-t" | "-W", value?: string, ...targets: path[]): status
+declare command xdg-open(target: string): status
+declare command pbcopy(option?: "-pboard" | "-find" | "-font" | "-ruler"): status
+declare command pbpaste(option?: "-Prefer" | "-pboard", value?: string): stream
+declare command wl-copy(option?: "-n" | "-o" | "-p" | "-t", value?: string): status
+declare command wl-paste(option?: "-l" | "-n" | "-p" | "-t" | "-w", value?: string): stream

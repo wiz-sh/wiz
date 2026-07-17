@@ -1,0 +1,4 @@
+source "./build.d.wiz"
+source "./languages.d.wiz"
+source "./shell.d.wiz"
+source "./vcs.d.wiz"

@@ -1,0 +1,1 @@
+declare -T int configured_retries=3

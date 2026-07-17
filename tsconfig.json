@@ -1,0 +1,59 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "strict": true,
+        "skipLibCheck": true,
+        "noUncheckedIndexedAccess": true,
+        "exactOptionalPropertyTypes": true,
+        "noImplicitOverride": true,
+        "verbatimModuleSyntax": true,
+        "allowImportingTsExtensions": true,
+        "paths": {
+            "@wiz/pm": [
+                "./packages/pm/src/index.ts"
+            ],
+            "@wiz/runtime": [
+                "./packages/runtime/src/index.ts"
+            ],
+            "@wiz/config": [
+                "./packages/config/src/index.ts"
+            ],
+            "@wiz/compiler": [
+                "./packages/compiler/src/index.ts"
+            ],
+            "@wiz/formatter": [
+                "./packages/formatter/src/index.ts"
+            ],
+            "@wiz/linter": [
+                "./packages/linter/src/index.ts"
+            ],
+            "@wiz/language-service": [
+                "./packages/language-service/src/index.ts"
+            ],
+            "@wiz/lsp": [
+                "./packages/lsp/src/index.ts"
+            ],
+            "@wiz/registry-client": [
+                "./packages/registry-client/src/index.ts"
+            ]
+        },
+        "noEmit": true,
+        "types": [
+            "bun-types"
+        ]
+    },
+    "include": [
+        "apps/**/*.ts",
+        "examples/**/*.ts",
+        "packages/**/*.ts",
+        "tests/**/*.ts",
+        "tools/**/*.ts"
+    ],
+    "exclude": [
+        "apps/docs/**",
+        "**/dist",
+        "**/node_modules"
+    ]
+}

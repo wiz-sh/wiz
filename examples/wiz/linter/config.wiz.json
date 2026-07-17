@@ -1,0 +1,17 @@
+{
+    "compiler": {
+        "rootDir": ".",
+        "outDir": "./dist"
+    },
+    "linter": {
+        "rules": {
+            "safety/no-eval": "error"
+        }
+    },
+    "files": {
+        "include": [
+            "*.wiz",
+            "*.d.wiz"
+        ]
+    }
+}

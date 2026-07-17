@@ -1,0 +1,5 @@
+* @hazelcaffe
+
+/apps/registry/ @hazelcaffe
+/packages/compiler/ @hazelcaffe
+/wiz/types/ @hazelcaffe

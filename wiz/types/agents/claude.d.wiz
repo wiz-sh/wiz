@@ -1,0 +1,3 @@
+# Anthropic Claude Code CLI.
+
+declare command claude(prompt?: string, option?: "--add-dir" | "--agent" | "--agents" | "--allowedTools" | "--append-system-prompt" | "--continue" | "--dangerously-skip-permissions" | "--debug" | "--disallowedTools" | "--fallback-model" | "--fork-session" | "--from-pr" | "--ide" | "--include-partial-messages" | "--input-format" | "--json-schema" | "--max-budget-usd" | "--mcp-config" | "--model" | "--no-session-persistence" | "--output-format" | "--permission-mode" | "--plugin-dir" | "--print" | "--resume" | "--session-id" | "--setting-sources" | "--settings" | "--strict-mcp-config" | "--system-prompt" | "--tools" | "--verbose" | "--version", value?: string): status

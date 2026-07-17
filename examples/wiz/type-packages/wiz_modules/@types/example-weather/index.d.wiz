@@ -1,0 +1,5 @@
+## Reads weather data without changing local state.
+declare command weather {
+    current(city: string, option?: "--json" | "--units", value?: "metric" | "imperial"): string
+    forecast(city: string, days?: int, option?: "--json" | "--units", value?: "metric" | "imperial"): stream
+}

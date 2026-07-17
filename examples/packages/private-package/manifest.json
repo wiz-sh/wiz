@@ -1,0 +1,15 @@
+{
+    "$schema": "https://raw.githubusercontent.com/hazelcaffe/wiz/main/packages/pm/schemas/manifest.schema.json",
+    "name": "@example/internal-tools",
+    "version": "1.0.0",
+    "main": "src/check.sh",
+    "description": "A private operational command",
+    "license": "MIT",
+    "scripts": {
+        "check": "bash -n src/check.sh"
+    },
+    "bin": {
+        "internal-check": "src/check.sh"
+    },
+    "dependencies": {}
+}

@@ -1,0 +1,16 @@
+# Process inspection and control tools.
+
+declare command ps(option?: "-A" | "-a" | "-e" | "-f" | "-o" | "-p" | "-u" | "-x", value?: string): stream
+declare command kill(option?: "-l" | "-s", signal?: string, ...processes: int[]): status
+declare command killall(option?: "-e" | "-I" | "-q" | "-s" | "-u" | "-v" | "-w", value?: string, ...names: string[]): status
+declare command pgrep(option?: "-a" | "-f" | "-l" | "-n" | "-o" | "-P" | "-u" | "-x", value?: string, pattern: string): stream
+declare command pkill(option?: "-e" | "-f" | "-n" | "-o" | "-P" | "-u" | "-x", value?: string, pattern: string): status
+declare command nohup(command: string, ...arguments: string[]): status
+declare command nice(option?: "-n", adjustment?: int, command: string, ...arguments: string[]): status
+declare command renice(priority: int, option?: "-g" | "-n" | "-p" | "-u", id?: int): status
+declare command watch(option?: "-b" | "-d" | "-e" | "-g" | "-n" | "-p" | "-t" | "-x", value?: string, command: string, ...arguments: string[]): status
+declare command top(option?: "-b" | "-d" | "-H" | "-n" | "-o" | "-p" | "-u", value?: string): status
+declare command htop(option?: "-C" | "-d" | "-p" | "-s" | "-t" | "-u", value?: string): status
+declare command lsof(option?: "-a" | "-c" | "-i" | "-p" | "-t" | "-u", value?: string, ...paths: path[]): stream
+declare command free(option?: "-b" | "-g" | "-h" | "-k" | "-m" | "-s" | "-t" | "-w", value?: int): stream
+declare command uptime(option?: "-p" | "-s"): string

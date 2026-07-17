@@ -1,0 +1,17 @@
+# Raw TCP, UDP, Unix-socket, and WebSocket clients and listeners.
+
+## Reads or writes TCP and UDP streams using the traditional netcat interface.
+declare command nc(option?: "-4" | "-6" | "-b" | "-C" | "-D" | "-d" | "-F" | "-h" | "-I" | "-i" | "-k" | "-l" | "-M" | "-m" | "-N" | "-n" | "-O" | "-P" | "-p" | "-q" | "-r" | "-S" | "-s" | "-T" | "-t" | "-U" | "-u" | "-V" | "-v" | "-w" | "-X" | "-x" | "-Z" | "-z", value?: string, host?: string, port?: int, ...ports: int[]): stream
+
+declare command netcat(option?: "-4" | "-6" | "-b" | "-C" | "-D" | "-d" | "-i" | "-k" | "-l" | "-n" | "-p" | "-q" | "-s" | "-t" | "-U" | "-u" | "-v" | "-w" | "-x" | "-z", value?: string, host?: string, port?: int, ...ports: int[]): stream
+
+## Uses Nmap's netcat implementation with TLS, proxy, broker, and connection controls.
+declare command ncat(option?: "-4" | "-6" | "-C" | "-e" | "-i" | "-k" | "-l" | "-m" | "-n" | "-p" | "-s" | "-u" | "-v" | "-w" | "-z" | "--allow" | "--allowfile" | "--broker" | "--chat" | "--deny" | "--denyfile" | "--exec" | "--idle-timeout" | "--keep-open" | "--listen" | "--lua-exec" | "--max-conns" | "--no-shutdown" | "--output" | "--proxy" | "--proxy-auth" | "--proxy-type" | "--recv-only" | "--send-only" | "--ssl" | "--ssl-cert" | "--ssl-ciphers" | "--ssl-key" | "--ssl-servername" | "--ssl-trustfile" | "--ssl-verify" | "--unixsock" | "--verbose", value?: string, host?: string, port?: int): stream
+
+## Bridges bidirectional byte streams across files, sockets, processes, and TLS endpoints.
+declare command socat(option?: "-d" | "-dd" | "-ddd" | "-dddd" | "-D" | "-ly" | "-lf" | "-lm" | "-lp" | "-ls" | "-lu" | "-s" | "-t" | "-T" | "-u" | "-v" | "-x", value?: string, address1: string, address2: string): status
+
+declare command telnet(option?: "-4" | "-6" | "-8" | "-E" | "-K" | "-L" | "-S" | "-X" | "-a" | "-b" | "-c" | "-d" | "-e" | "-l" | "-n" | "-r" | "-x", value?: string, host?: string, port?: int): stream
+
+## Connects WebSocket endpoints to standard input/output or another byte stream.
+declare command websocat(option?: "-0" | "-1" | "-b" | "-B" | "-E" | "-H" | "-k" | "-L" | "-n" | "-s" | "-t" | "-U" | "-u" | "-v" | "--basic-auth" | "--binary" | "--client-pkcs12" | "--header" | "--origin" | "--ping-interval" | "--protocol" | "--restrict-uri" | "--server-header" | "--text" | "--ws-c-uri" | "--ws-version", value?: string, address1: string, address2?: string): stream

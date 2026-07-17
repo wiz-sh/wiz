@@ -1,0 +1,8 @@
+{
+    "name": "@wiz/examples",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "example": "bun run ./cli.ts"
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../packages/pm/schemas/manifest.schema.json",
+    "name": "@types/network",
+    "version": "0.1.0",
+    "main": "index.d.wiz",
+    "description": "Typed DNS, diagnostics, scanning, sockets, transfer, and remote-access tools",
+    "license": "MIT",
+    "scripts": {},
+    "bin": {},
+    "dependencies": {}
+}

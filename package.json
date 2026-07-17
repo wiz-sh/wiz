@@ -1,0 +1,45 @@
+{
+    "name": "wiz",
+    "private": true,
+    "license": "MIT",
+    "workspaces": [
+        "apps/*",
+        "packages/*"
+    ],
+    "scripts": {
+        "build": "bun run --cwd packages/config build && bun run --cwd packages/registry-client build && bun run --cwd packages/compiler build && bun run --cwd packages/pm build && bun run --cwd packages/formatter build && bun run --cwd packages/linter build && bun run --cwd packages/runtime build && bun run --cwd packages/language-service build && bun run --cwd packages/lsp build && bun run --cwd apps/registry build && bun run --cwd apps/docs build && bun run --cwd apps/cli build && bun run --cwd apps/vscode build",
+        "docs": "bun run --cwd apps/docs dev",
+        "example": "bun run --cwd examples example",
+        "lint": "biome lint .",
+        "lint:fix": "biome lint --write .",
+        "format": "biome format . && bun tools/json-format.ts --check",
+        "format:check": "biome format . && bun tools/json-format.ts --check",
+        "format:fix": "biome format --write . && bun tools/json-format.ts",
+        "format:json": "bun tools/json-format.ts",
+        "format:json:check": "bun tools/json-format.ts --check",
+        "typecheck": "tsc --noEmit",
+        "test": "bun test",
+        "test:unit": "bun test packages",
+        "test:integration": "bun test tests/wiz tests/integration",
+        "test:registry": "bun run --cwd apps/registry test:integration",
+        "registry:dev": "docker compose -f docker-compose.dev.yml up --build",
+        "registry:dev:down": "docker compose -f docker-compose.dev.yml down --volumes --remove-orphans",
+        "registry:prod:validate": "docker compose --env-file .env.example -f docker-compose.prod.yml config",
+        "registry:test:e2e": "bun run ./tools/registry-e2e.ts",
+        "registry:test:smtp-e2e": "bun run ./tools/registry-smtp-e2e.ts",
+        "registry:test:webauthn": "bun run ./tools/registry-webauthn-e2e.ts",
+        "test:coverage": "bun test --coverage",
+        "cloc": "bun x --package cloc cloc apps/*/src apps/vscode/syntaxes packages/*/src wiz/types --include-ext=ts,tsx,js,json,wiz,sh,zsh --force-lang='Bourne Again Shell',wiz --force-lang='Bourne Again Shell',zsh",
+        "check": "biome check . && bun tools/json-format.ts --check && bun run typecheck && bun test",
+        "check:fix": "biome check --write . && bun tools/json-format.ts"
+    },
+    "devDependencies": {
+        "@biomejs/biome": "^2.2.0",
+        "@playwright/test": "^1.61.1",
+        "@simplewebauthn/browser": "^13.3.0",
+        "bun-types": "^1.2.19",
+        "imapflow": "^1.4.7",
+        "typescript": "^5.9.2"
+    },
+    "packageManager": "bun@1.3.14"
+}

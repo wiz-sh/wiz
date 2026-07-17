@@ -1,0 +1,10 @@
+# Connectivity, routing, packet capture, and socket-state tools.
+
+declare command ping(option?: "-4" | "-6" | "-c" | "-i" | "-s" | "-t" | "-W", value?: string, host: string): status
+declare command traceroute(option?: "-4" | "-6" | "-I" | "-m" | "-n" | "-p" | "-q" | "-T" | "-w", value?: string, host: string): status
+declare command tracepath(option?: "-4" | "-6" | "-b" | "-l" | "-m" | "-n" | "-p", value?: int, destination: string): status
+declare command ss(option?: "-a" | "-l" | "-n" | "-p" | "-s" | "-t" | "-u" | "-x", filter?: string): stream
+declare command netstat(option?: "-a" | "-g" | "-i" | "-l" | "-n" | "-p" | "-r" | "-s" | "-t" | "-u", value?: string): stream
+declare command whois(option?: "-h" | "-p", value?: string, query: string): stream
+declare command tcpdump(option?: "-A" | "-c" | "-D" | "-e" | "-i" | "-n" | "-nn" | "-Q" | "-r" | "-s" | "-v" | "-vv" | "-w" | "-X", value?: string, expression?: string, ...expressionParts: string[]): status
+declare command tshark(option?: "-a" | "-b" | "-c" | "-D" | "-e" | "-f" | "-F" | "-i" | "-n" | "-r" | "-T" | "-V" | "-w" | "-Y", value?: string, ...captureFilters: string[]): status

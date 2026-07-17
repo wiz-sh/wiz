@@ -1,0 +1,6 @@
+declare -T string name="Hazel"
+declare -T int retries=3
+declare -T bool enabled=true
+declare -T string[] services=("caddy" "postgresql")
+
+printf '%s retries=%s enabled=%s services=%s\n' "$name" "$retries" "$enabled" "${services[*]}"

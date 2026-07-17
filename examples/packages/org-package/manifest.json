@@ -1,0 +1,15 @@
+{
+    "$schema": "https://raw.githubusercontent.com/hazelcaffe/wiz/main/packages/pm/schemas/manifest.schema.json",
+    "name": "@acme/deploy",
+    "version": "1.0.0",
+    "main": "src/deploy.wiz",
+    "description": "An organization-owned typed deployment command",
+    "license": "MIT",
+    "scripts": {
+        "check": "wiz check src/deploy.wiz"
+    },
+    "bin": {
+        "acme-deploy": "src/deploy.wiz"
+    },
+    "dependencies": {}
+}

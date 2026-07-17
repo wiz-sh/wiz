@@ -1,0 +1,25 @@
+{
+    "name": "@wiz/runtime",
+    "version": "0.1.0",
+    "private": true,
+    "description": "Executable resolution and command runtime for Wiz",
+    "license": "MIT",
+    "type": "module",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "default": "./dist/index.js"
+        }
+    },
+    "scripts": {
+        "build": "bun build ./src/index.ts --outdir ./dist --target bun --format esm && tsc --project ./tsconfig.build.json"
+    },
+    "dependencies": {
+        "@wiz/pm": "workspace:*"
+    },
+    "engines": {
+        "bun": ">=1.2.0"
+    }
+}

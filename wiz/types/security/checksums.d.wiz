@@ -1,0 +1,10 @@
+# Cryptographic hashes and portable checksum manifests.
+
+declare command sha1sum(option?: "-b" | "-c" | "-t" | "-z" | "--binary" | "--check" | "--ignore-missing" | "--quiet" | "--status" | "--strict" | "--tag" | "--text" | "--warn" | "--zero", file?: file, ...files: file[]): status
+declare command sha224sum(option?: "-b" | "-c" | "-t" | "-z" | "--binary" | "--check" | "--ignore-missing" | "--quiet" | "--status" | "--strict" | "--tag" | "--text" | "--warn" | "--zero", file?: file, ...files: file[]): status
+declare command sha256sum(option?: "-b" | "-c" | "-t" | "-z" | "--binary" | "--check" | "--ignore-missing" | "--quiet" | "--status" | "--strict" | "--tag" | "--text" | "--warn" | "--zero", file?: file, ...files: file[]): status
+declare command sha384sum(option?: "-b" | "-c" | "-t" | "-z" | "--binary" | "--check" | "--ignore-missing" | "--quiet" | "--status" | "--strict" | "--tag" | "--text" | "--warn" | "--zero", file?: file, ...files: file[]): status
+declare command sha512sum(option?: "-b" | "-c" | "-t" | "-z" | "--binary" | "--check" | "--ignore-missing" | "--quiet" | "--status" | "--strict" | "--tag" | "--text" | "--warn" | "--zero", file?: file, ...files: file[]): status
+declare command b2sum(option?: "-b" | "-c" | "-l" | "-t" | "-z" | "--binary" | "--check" | "--ignore-missing" | "--length" | "--quiet" | "--status" | "--strict" | "--tag" | "--text" | "--warn" | "--zero", value?: int, file?: file, ...files: file[]): status
+declare command md5sum(option?: "-b" | "-c" | "-t" | "-z" | "--binary" | "--check" | "--ignore-missing" | "--quiet" | "--status" | "--strict" | "--tag" | "--text" | "--warn" | "--zero", file?: file, ...files: file[]): status
+declare command shasum(option?: "-0" | "-a" | "-b" | "-c" | "-p" | "-t" | "-U" | "--algorithm" | "--binary" | "--check" | "--portable" | "--status" | "--tag" | "--text" | "--universal" | "--warn", value?: int, file?: file, ...files: file[]): status

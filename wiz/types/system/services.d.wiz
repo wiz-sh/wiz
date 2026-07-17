@@ -1,0 +1,13 @@
+# Platform service, journal, and privilege tools.
+
+declare command journalctl(option?: "-b" | "-f" | "-k" | "-n" | "-o" | "-p" | "-S" | "-u" | "--no-pager" | "--since" | "--until", value?: string): stream
+declare command launchctl(command: "bootstrap" | "bootout" | "disable" | "enable" | "kickstart" | "kill" | "list" | "print" | "remove" | "start" | "stop", target?: string, ...arguments: string[]): status
+declare command service(name: string, command: "start" | "stop" | "restart" | "reload" | "status", ...arguments: string[]): status
+## Executes a command under sudo policy with explicit identity, environment, and session controls.
+declare command sudo(option?: "-A" | "-B" | "-b" | "-C" | "-D" | "-E" | "-e" | "-g" | "-H" | "-h" | "-i" | "-K" | "-k" | "-l" | "-n" | "-P" | "-p" | "-R" | "-r" | "-S" | "-T" | "-U" | "-u" | "-V" | "-v" | "--askpass" | "--background" | "--bell" | "--chdir" | "--close-from" | "--edit" | "--group" | "--help" | "--host" | "--login" | "--non-interactive" | "--preserve-env" | "--prompt" | "--remove-timestamp" | "--reset-timestamp" | "--role" | "--stdin" | "--type" | "--user" | "--validate" | "--version", value?: string, command?: string, ...arguments: string[]): status
+declare command su(option?: "-c" | "-l" | "-s", value?: string, user?: string): status
+declare command doas(option?: "-C" | "-L" | "-n" | "-s" | "-u", value?: string, command?: string, ...arguments: string[]): status
+declare command chroot(directory: directory, command?: string, ...arguments: string[]): status
+declare command file(option?: "-b" | "-i" | "-L" | "-s" | "-z", ...files: file[]): string
+declare command which(option?: "-a" | "-s", command: string, ...commands: string[]): path
+declare command whereis(option?: "-b" | "-m" | "-s" | "-u", name: string, ...names: string[]): stream

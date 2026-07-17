@@ -1,0 +1,13 @@
+# Docker and Compose commands.
+
+declare command docker {
+    build(option?: "-f" | "-t" | "--build-arg" | "--file" | "--network" | "--no-cache" | "--platform" | "--pull" | "--tag" | "--target", value?: string, context?: path): status
+    compose(option?: "-f" | "-p" | "--env-file" | "--profile" | "--project-directory", value?: string, command?: "build" | "config" | "down" | "exec" | "logs" | "ps" | "pull" | "restart" | "run" | "start" | "stop" | "up", ...arguments: string[]): status
+    exec(option?: "-d" | "-e" | "-i" | "-t" | "-u" | "-w", value?: string, container: string, command: string, ...arguments: string[]): status
+    images(option?: "-a" | "-q" | "--digests" | "--filter" | "--format" | "--no-trunc", value?: string, repository?: string): stream
+    logs(option?: "-f" | "-n" | "-t" | "--details" | "--follow" | "--since" | "--tail" | "--timestamps" | "--until", value?: string, container: string): stream
+    ps(option?: "-a" | "-q" | "-s" | "--filter" | "--format" | "--last" | "--no-trunc", value?: string): stream
+    pull(option?: "-a" | "-q" | "--all-tags" | "--platform" | "--quiet", value?: string, image: string): status
+    push(option?: "-a" | "-q" | "--all-tags" | "--disable-content-trust" | "--quiet", image: string): status
+    run(option?: "-d" | "-e" | "-i" | "-p" | "-t" | "-u" | "-v" | "-w" | "--env" | "--name" | "--network" | "--platform" | "--rm", value?: string, image: string, command?: string, ...arguments: string[]): status
+}

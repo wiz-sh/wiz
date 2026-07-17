@@ -1,0 +1,15 @@
+{
+    "$schema": "../packages/pm/schemas/manifest.schema.json",
+    "name": "@wiz/type-packages",
+    "version": "0.1.0",
+    "description": "Official installable Wiz declaration packages",
+    "license": "MIT",
+    "private": true,
+    "scripts": {},
+    "bin": {},
+    "dependencies": {},
+    "workspaces": [
+        "types/*",
+        "stdlib"
+    ]
+}

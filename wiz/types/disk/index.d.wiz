@@ -1,0 +1,26 @@
+# Disk, filesystem, partition, and volume utilities.
+
+declare command df(option?: "-a" | "-h" | "-H" | "-i" | "-k" | "-l" | "-P" | "-T", ...paths: path[]): stream
+declare command du(option?: "-a" | "-c" | "-d" | "-h" | "-k" | "-s" | "-x", depth?: int, ...paths: path[]): stream
+declare command lsblk(option?: "-a" | "-b" | "-f" | "-J" | "-l" | "-m" | "-n" | "-o" | "-p" | "-r", columns?: string, device?: path): stream
+declare command blkid(option?: "-c" | "-g" | "-L" | "-l" | "-o" | "-p" | "-s" | "-t" | "-U", value?: string, device?: path): stream
+declare command fdisk(option?: "-l" | "-s" | "-u" | "-w" | "-W", device?: path): status
+declare command sfdisk(option?: "-d" | "-J" | "-l" | "-N" | "-n" | "-q" | "-V", value?: string, device?: path): status
+declare command cfdisk(option?: "-a" | "-L" | "-r" | "-z", device?: path): status
+declare command parted(option?: "-a" | "-f" | "-j" | "-l" | "-m" | "-s", value?: string, device?: path, command?: string, ...arguments: string[]): status
+declare command partprobe(option?: "-d" | "-s", ...devices: path[]): status
+declare command findmnt(option?: "-A" | "-D" | "-J" | "-l" | "-n" | "-o" | "-r" | "-T" | "-t", value?: string): stream
+declare command mount(option?: "-a" | "-B" | "-M" | "-o" | "-r" | "-t" | "-v" | "-w", value?: string, source?: path, target?: directory): status
+declare command umount(option?: "-a" | "-f" | "-l" | "-R" | "-r" | "-t" | "-v", value?: string, target?: path): status
+declare command mountpoint(option?: "-d" | "-q" | "-x", path: path): status
+declare command losetup(option?: "-a" | "-d" | "-D" | "-f" | "-j" | "-P" | "-r" | "--show", value?: path, file?: file): status
+declare command swapon(option?: "-a" | "-d" | "-p" | "-s" | "--show", value?: int, device?: path): status
+declare command swapoff(option?: "-a" | "-v", device?: path): status
+declare command sync(option?: "-d" | "-f", ...files: file[]): status
+declare command fsck(option?: "-A" | "-C" | "-M" | "-N" | "-P" | "-R" | "-T" | "-V", device?: path): status
+declare command mkfs(option?: "-t" | "-V", filesystem?: string, device?: path): status
+declare command tune2fs(option?: "-c" | "-i" | "-j" | "-L" | "-l" | "-m" | "-U", value?: string, device?: path): status
+declare command e2fsck(option?: "-c" | "-f" | "-n" | "-p" | "-v" | "-y", device: path): status
+declare command resize2fs(option?: "-f" | "-M" | "-P" | "-p", device: path, size?: string): status
+declare command diskutil(command: "list" | "info" | "mount" | "unmount" | "eject" | "verifyVolume" | "repairVolume" | "eraseDisk" | "partitionDisk" | "apfs", target?: path, ...arguments: string[]): status
+declare command hdiutil(command: "attach" | "detach" | "create" | "convert" | "info" | "verify" | "burn", image?: file, ...arguments: string[]): status

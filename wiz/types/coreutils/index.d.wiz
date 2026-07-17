@@ -1,0 +1,55 @@
+# GNU and BSD core utility declarations.
+
+declare command basename(path: path, suffix?: string): string
+declare command cat(input?: string, ...files: path[]): stream
+declare command chmod(option?: "-R" | "-f" | "-v", mode: string, ...paths: path[]): status
+declare command chown(option?: "-R" | "-f" | "-h" | "-v", owner: string, ...paths: path[]): status
+declare command cp(option?: "-R" | "-a" | "-f" | "-i" | "-n" | "-p" | "-r" | "-v", source: path, destination: path, ...sources: path[]): status
+declare command cut(option: "-b" | "-c" | "-f", list: string, ...files: file[]): stream
+declare command date(option?: "-I" | "-R" | "-u", value?: string): string
+declare command dirname(path: path): path
+declare command env(option?: "-i" | "-u", name?: string, command?: string, ...arguments: string[]): status
+declare command expand(option?: "-i" | "-t", tabs?: string, ...files: file[]): stream
+declare command expr(expression: string, ...operands: string[]): string
+declare command false(): status
+declare command fmt(option?: "-c" | "-s" | "-u" | "-w", width?: int, ...files: file[]): stream
+declare command fold(option?: "-b" | "-s" | "-w", width?: int, ...files: file[]): stream
+declare command groups(user?: string): string
+declare command head(option?: "-c" | "-n" | "-q" | "-v", count?: int, ...files: file[]): stream
+declare command id(option?: "-G" | "-g" | "-n" | "-u", user?: string): string
+declare command install(option?: "-d" | "-D" | "-m" | "-o" | "-g" | "-v", value?: string, source?: path, destination?: path): status
+declare command ln(option?: "-f" | "-i" | "-n" | "-s" | "-v", target: path, link?: path): status
+declare command ls(option?: "-A" | "-a" | "-F" | "-h" | "-l" | "-R" | "-r" | "-S" | "-t" | "-1", ...paths: path[]): stream
+declare command mkdir(option?: "-m" | "-p" | "-v", value?: string, ...directories: directory[]): status
+declare command mktemp(option?: "-d" | "-p" | "-q" | "-t" | "-u", template?: string): path
+declare command mv(option?: "-f" | "-i" | "-n" | "-v", source: path, destination: path, ...sources: path[]): status
+declare command nl(option?: "-b" | "-n" | "-s" | "-v" | "-w", value?: string, ...files: file[]): stream
+declare command nproc(option?: "--all" | "--ignore", value?: int): int
+declare command paste(option?: "-d" | "-s" | "-z", value?: string, ...files: file[]): stream
+declare command printenv(name?: string, ...names: string[]): stream
+declare command readlink(option?: "-e" | "-f" | "-m" | "-n" | "-q" | "-v", path: path): path
+declare command realpath(option?: "-e" | "-m" | "-q" | "-s", path: path): path
+declare command rm(option?: "-d" | "-f" | "-i" | "-I" | "-r" | "-R" | "-v", ...paths: path[]): status
+declare command rmdir(option?: "-p" | "-v", ...directories: directory[]): status
+declare command seq(first?: int, increment?: int, last: int): stream
+declare command sha1sum(option?: "-b" | "-c" | "-t" | "-z", ...files: file[]): stream
+declare command sha256sum(option?: "-b" | "-c" | "-t" | "-z", ...files: file[]): stream
+declare command shasum(option?: "-a" | "-b" | "-c" | "-p" | "-t", algorithm?: int, ...files: file[]): stream
+declare command sleep(duration: string, ...durations: string[]): status
+declare command sort(option?: "-b" | "-f" | "-h" | "-n" | "-r" | "-u" | "-V" | "-z", ...files: file[]): stream
+declare command split(option?: "-a" | "-b" | "-l" | "-n", value?: string, file?: file, prefix?: string): status
+declare command stat(option?: "-c" | "-f" | "-L" | "-t", format?: string, path: path): string
+declare command tail(option?: "-c" | "-f" | "-F" | "-n" | "-q" | "-v", count?: int, ...files: file[]): stream
+declare command tee(option?: "-a" | "-i" | "-p", ...files: file[]): stream
+declare command timeout(option?: "-k" | "-s" | "--foreground" | "--preserve-status", value?: string, duration: string, command: string, ...arguments: string[]): status
+declare command touch(option?: "-a" | "-c" | "-d" | "-m" | "-r" | "-t", value?: string, ...files: file[]): status
+declare command tr(option?: "-c" | "-C" | "-d" | "-s" | "-t", set1: string, set2?: string): stream
+declare command true(): status
+declare command truncate(option: "-c" | "-r" | "-s", value?: string, ...files: file[]): status
+declare command uname(option?: "-a" | "-m" | "-n" | "-o" | "-r" | "-s" | "-v"): string
+declare command uniq(option?: "-c" | "-d" | "-f" | "-i" | "-s" | "-u" | "-w", value?: int, input?: file, output?: file): stream
+declare command unlink(path: path): status
+declare command wc(option?: "-c" | "-l" | "-m" | "-w", ...files: file[]): string
+declare command whoami(): string
+declare command yes(value?: string, ...values: string[]): stream
+declare command xargs(option?: "-0" | "-I" | "-L" | "-n" | "-P" | "-r" | "-t", value?: string, command?: string, ...arguments: string[]): status

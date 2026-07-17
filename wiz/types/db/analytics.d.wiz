@@ -1,0 +1,7 @@
+# Document and analytical database clients.
+
+declare command mongosh(option?: "--apiVersion" | "--authenticationDatabase" | "--eval" | "--file" | "--host" | "--nodb" | "--password" | "--port" | "--quiet" | "--username", value?: string, connection?: string): status
+declare command duckdb(database?: file, option?: "-c" | "-csv" | "-init" | "-json" | "-line" | "-readonly" | "-s" | "-table", value?: string): stream
+declare command clickhouse(command: "client" | "local", option?: "--database" | "--format" | "--host" | "--multiquery" | "--password" | "--port" | "--query" | "--secure" | "--user", value?: string): stream
+declare command influx(command: "bucket" | "config" | "delete" | "org" | "ping" | "query" | "setup" | "task" | "write", option?: string, value?: string, ...arguments: string[]): status
+declare command cqlsh(host?: string, port?: int, option?: "-e" | "-f" | "-k" | "-p" | "-u", value?: string): status

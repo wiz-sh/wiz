@@ -1,0 +1,12 @@
+# OpenAI Codex CLI.
+
+declare command codex {
+    apply(task: string): status
+    completion(shell: "bash" | "fish" | "powershell" | "zsh"): stream
+    exec(prompt?: string, option?: "--color" | "--config" | "--dangerously-bypass-approvals-and-sandbox" | "--full-auto" | "--image" | "--json" | "--model" | "--output-last-message" | "--profile" | "--sandbox" | "--skip-git-repo-check", value?: string): status
+    features(action?: "disable" | "enable" | "list", feature?: string): status
+    login(option?: "--api-key" | "--device-auth" | "--with-api-key", value?: string): status
+    logout(): status
+    mcp(action: "add" | "get" | "list" | "login" | "logout" | "remove", server?: string, option?: "--bearer-token-env-var" | "--env" | "--scope" | "--url", value?: string): status
+    resume(session?: string, option?: "--all" | "--last" | "--model", value?: string): status
+}

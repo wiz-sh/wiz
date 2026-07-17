@@ -1,0 +1,4 @@
+source "./python.d.wiz"
+source "./pip.d.wiz"
+source "./uv.d.wiz"
+source "./tools.d.wiz"

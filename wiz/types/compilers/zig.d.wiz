@@ -1,0 +1,15 @@
+# Zig compiler, build system, package manager, and C-family drivers.
+
+declare command zig {
+    build(step?: string, option?: "-Doptimize" | "-Dtarget" | "--fetch" | "--help" | "--prefix" | "--release" | "--summary" | "--verbose", value?: string, ...steps: string[]): status
+    build-exe(source: file, option?: "-O" | "-femit-bin" | "-fno-emit-bin" | "-lc" | "-mcpu" | "-Mroot" | "-target", value?: string, ...sources: file[]): status
+    build-lib(source: file, option?: "-dynamic" | "-femit-bin" | "-lc" | "-O" | "-static" | "-target", value?: string, ...sources: file[]): status
+    build-obj(source: file, option?: "-femit-bin" | "-O" | "-target", value?: string, ...sources: file[]): status
+    cc(source: file, option?: "-c" | "-D" | "-I" | "-L" | "-l" | "-O0" | "-O2" | "-o" | "-target" | "-Wall", value?: string, ...sources: file[]): status
+    cxx(source: file, option?: "-c" | "-D" | "-I" | "-L" | "-l" | "-O0" | "-O2" | "-o" | "-std=c++20" | "-target" | "-Wall", value?: string, ...sources: file[]): status
+    fmt(path: path, option?: "--ast-check" | "--check" | "--exclude", value?: path, ...paths: path[]): status
+    init(): status
+    run(source: file, option?: "-O" | "-lc" | "-target", value?: string, ...arguments: string[]): status
+    test(source: file, option?: "--test-filter" | "--test-no-exec" | "--test-runner" | "-O" | "-target", value?: string): status
+    version(): string
+}

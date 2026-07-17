@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+source "./message.wiz"
+source "./legacy.sh"
+
+print_message "bundled Wiz"
+legacy_message

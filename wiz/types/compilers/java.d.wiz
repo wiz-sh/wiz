@@ -1,0 +1,7 @@
+# Java runtime, compiler, archive, and documentation tools.
+
+declare command java(option?: "--class-path" | "-cp" | "--describe-module" | "-D" | "--enable-preview" | "--jar" | "-jar" | "--list-modules" | "--module" | "-m" | "--module-path" | "-p" | "--show-version" | "--source" | "--version", value?: string, main?: string, ...arguments: string[]): status
+declare command javac(source: file, option?: "--class-path" | "-cp" | "-d" | "-deprecation" | "--enable-preview" | "-encoding" | "-g" | "-implicit" | "--module-path" | "-p" | "-proc" | "--release" | "-source" | "--source-path" | "-target" | "-Werror" | "-Xlint", value?: string, ...sources: file[]): status
+declare command jar(option: "--create" | "-c" | "--describe-module" | "-d" | "--extract" | "-x" | "--generate-index" | "-i" | "--list" | "-t" | "--update" | "-u" | "--validate", archive?: file, file?: file, ...files: file[]): status
+declare command javadoc(source: file, option?: "-author" | "--class-path" | "-d" | "-docencoding" | "-encoding" | "-link" | "--module-path" | "-overview" | "-private" | "-protected" | "-public" | "-quiet" | "-sourcepath" | "-use" | "-version" | "-windowtitle", value?: string, ...sources: file[]): status
+declare command jshell(option?: "--class-path" | "--enable-preview" | "--execution" | "--feedback" | "--module-path" | "--startup", value?: string, file?: file): status

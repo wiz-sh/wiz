@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../packages/pm/schemas/manifest.schema.json",
+    "name": "@types/security",
+    "version": "0.1.0",
+    "main": "index.d.wiz",
+    "description": "Typed cryptography, certificate, signing, key, and checksum tools",
+    "license": "MIT",
+    "scripts": {},
+    "bin": {},
+    "dependencies": {}
+}

@@ -1,0 +1,11 @@
+# C and C++ compiler and linker drivers.
+
+declare command cc(input: file, option?: "-c" | "-D" | "-E" | "-g" | "-I" | "-L" | "-l" | "-M" | "-O0" | "-O1" | "-O2" | "-O3" | "-Os" | "-o" | "-pedantic" | "-pthread" | "-S" | "-std=c11" | "-std=c17" | "-std=c2x" | "-U" | "-Wall" | "-Werror" | "-Wextra" | "-Wpedantic" | "-Wl", value?: string, ...inputs: file[]): status
+declare command gcc(input: file, option?: "-c" | "-D" | "-E" | "-fPIC" | "-g" | "-I" | "-L" | "-l" | "-M" | "-O0" | "-O1" | "-O2" | "-O3" | "-Os" | "-o" | "-pedantic" | "-pthread" | "-S" | "-shared" | "-std=c11" | "-std=c17" | "-std=c2x" | "-U" | "-Wall" | "-Werror" | "-Wextra" | "-Wpedantic", value?: string, ...inputs: file[]): status
+declare command clang(input: file, option?: "-c" | "-D" | "-E" | "-fPIC" | "-g" | "-I" | "-L" | "-l" | "-O0" | "-O1" | "-O2" | "-O3" | "-Os" | "-o" | "-pthread" | "-S" | "-shared" | "-std=c11" | "-std=c17" | "-std=c2x" | "-U" | "-Wall" | "-Werror" | "-Wextra" | "--target", value?: string, ...inputs: file[]): status
+declare command cxx(input: file, option?: "-c" | "-D" | "-g" | "-I" | "-L" | "-l" | "-O0" | "-O2" | "-O3" | "-o" | "-pthread" | "-std=c++17" | "-std=c++20" | "-std=c++23" | "-Wall" | "-Werror" | "-Wextra", value?: string, ...inputs: file[]): status
+declare command g++(input: file, option?: "-c" | "-D" | "-g" | "-I" | "-L" | "-l" | "-O0" | "-O2" | "-O3" | "-o" | "-pthread" | "-std=c++17" | "-std=c++20" | "-std=c++23" | "-Wall" | "-Werror" | "-Wextra", value?: string, ...inputs: file[]): status
+declare command clang++(input: file, option?: "-c" | "-D" | "-g" | "-I" | "-L" | "-l" | "-O0" | "-O2" | "-O3" | "-o" | "-pthread" | "-std=c++17" | "-std=c++20" | "-std=c++23" | "-Wall" | "-Werror" | "-Wextra", value?: string, ...inputs: file[]): status
+declare command ar(option: "d" | "m" | "p" | "q" | "r" | "s" | "t" | "x" | "rcs", archive: file, ...members: file[]): status
+declare command make(target?: string, option?: "-C" | "-f" | "-j" | "-k" | "-n" | "-s" | "--always-make" | "--debug" | "--keep-going" | "--no-print-directory", value?: string, ...targets: string[]): status
+declare command cmake(source?: directory, option?: "-B" | "-D" | "-G" | "-S" | "--build" | "--fresh" | "--install" | "--preset" | "--target" | "--toolchain", value?: string): status

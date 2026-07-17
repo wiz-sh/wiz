@@ -1,0 +1,148 @@
+## Binary-safe handles backed by private temporary files.
+declare command bytes {
+    capture(variable: string, separator: "--", command: string, ...arguments: string[]): status
+    read(variable: string, source: path): status
+    emit(value: bytes): stream
+    pipe(value: bytes, separator: "--", command: string, ...arguments: string[]): status
+    save(value: bytes, destination: path): status
+    length(value: bytes): int
+    dispose(value: bytes): status
+}
+
+## Wiz language tooling, package management, registry, runtime, and workspaces.
+declare command wiz {
+    ## Creates a project from a built-in or user-installed template.
+    create(template?: string, directory?: directory): status
+    option --list for create
+
+    ## Creates a package or monorepo in the current directory.
+    init(name?: string): status
+    option --monorepo for init
+
+    ## Adds or installs local, Git, workspace, and registry dependencies.
+    install(package?: string): status
+    option -g, --global for install
+    option --branch <branch: string> for install
+    option --commit <commit: string> conflicts(--branch) for install
+    option --frozen-lockfile for install
+    option --workspace <workspace: string> for install
+
+    ## Short alias for `wiz install`.
+    i(package?: string): status
+    option -g, --global for i
+    option --branch <branch: string> for i
+    option --commit <commit: string> conflicts(--branch) for i
+    option --frozen-lockfile for i
+    option --workspace <workspace: string> for i
+
+    update(package?: string): status
+
+    ## Runs a source file, shell program, package path, or executable.
+    run(path: path, ...arguments: string[]): status
+
+    ## Checks Wiz syntax, binding, types, and target compatibility without emitting.
+    check(input?: path): status
+    option --target <target: "bash" | "zsh" | "sh" | "fish" | "powershell" | "cmd"> for check
+
+    ## Rebuilds and restarts an entry file after dependency changes.
+    watch(input?: path, ...arguments: string[]): status
+
+    script(name: string, ...arguments: string[]): status
+    x(binary: string, ...arguments: string[]): status
+
+    ## Fetches and executes an isolated Git-backed package.
+    dlx(repository: string, ...arguments: string[]): status
+    option --branch <branch: string> for dlx
+    option --commit <commit: string> conflicts(--branch) for dlx
+    option --bin <binary: string> for dlx
+
+    index(package?: string): path
+    resolve(package?: string): path
+
+    list(): stream
+    option --global for list
+
+    info(): stream
+    why(package: string): stream
+    doctor(): status
+
+    cache(command: "verify"): status
+
+    remove(package: string): status
+    option -g, --global for remove
+
+    rm(package: string): status
+    option -g, --global for rm
+
+    link(package?: string): status
+
+    unlink(package?: string): status
+    option -g, --global for unlink
+
+    clean(): status
+    option --yes for clean
+
+    prune(): status
+    option --global for prune
+    option --dry-run for prune
+
+    approve(...packages: string[]): status
+
+    bin(command: "list" | "set" | "remove", name?: string, path?: path): status
+
+    root(): path
+    needs(binary: string): status
+
+    ## Manages and runs monorepo workspaces.
+    workspace(command: "list" | "root" | "add" | "run", workspaceOrScript?: string, ...arguments: string[]): status
+    option --if-present for workspace
+    option --json for workspace
+
+    ## Formats Wiz sources or emits semantics-preserving compact source.
+    format(...paths: path[]): status
+    option --write for format
+    option --check conflicts(--write) for format
+    option --minify for format
+    option --stdin-file-path <path: path> for format
+
+    fmt(...paths: path[]): status
+    option --write for fmt
+    option --check conflicts(--write) for fmt
+    option --minify for fmt
+    option --stdin-file-path <path: path> for fmt
+
+    lint(...paths: path[]): status
+    option --fix for lint
+    option --fix-unsafe requires(--fix) for lint
+
+    ## Configures registry aliases and credentials.
+    registry(command: "list" | "get" | "add" | "set-default" | "remove" | "set-token" | "logout" | "whoami" | "ping", name?: string, value?: string): status
+    option --token <token: string> for registry
+
+    login(registry?: string): status
+    option --token <token: string> for login
+
+    logout(registry?: string): status
+    whoami(registry?: string): status
+
+    ## Publishes the current immutable package version.
+    publish(): status
+    option --access <visibility: "private" | "public"> for publish
+
+    deprecate(packageAndVersion: string, message: string, ...messageParts: string[]): status
+    search(query: string, ...queryParts: string[]): stream
+    view(package: string): stream
+
+    org(command: "create" | "list" | "view", name?: string, displayName?: string): status
+
+    ## Compatibility namespace for compiler and language-server commands.
+    c(command: "init" | "build" | "check" | "run" | "watch" | "format" | "lint" | "lsp" | "config" | "map", input?: path, ...arguments: string[]): status
+    option --target <target: "bash" | "zsh" | "sh" | "fish" | "powershell" | "cmd"> for c
+    option --bundle for c
+    option --minify for c
+    option --stdio for c
+    option --write for c
+    option --check for c
+    option --fix for c
+    option --fix-unsafe requires(--fix) for c
+}

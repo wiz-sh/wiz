@@ -1,0 +1,12 @@
+# systemd service manager commands.
+
+declare command systemctl {
+    disable(option?: "--now" | "--runtime" | "--user", ...units: string[]): status
+    enable(option?: "--now" | "--runtime" | "--user", ...units: string[]): status
+    is-active(option?: "--quiet" | "--user", unit: string): status
+    reload(option?: "--no-block" | "--user", ...units: string[]): status
+    restart(option?: "--no-block" | "--user", ...units: string[]): status
+    start(option?: "--no-block" | "--user", ...units: string[]): status
+    status(option?: "--full" | "--lines" | "--no-pager" | "--user", value?: int, ...units: string[]): status
+    stop(option?: "--no-block" | "--user", ...units: string[]): status
+}

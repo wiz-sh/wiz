@@ -1,0 +1,2 @@
+source -I greet -- "./helpers.wiz"
+greet "sourced Wiz"

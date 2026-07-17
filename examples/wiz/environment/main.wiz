@@ -1,0 +1,4 @@
+declare -xT string NODE_ENV="${NODE_ENV:-development}"
+declare -T path home="$HOME"
+
+printf 'mode=%s home=%s\n' "$NODE_ENV" "$home"

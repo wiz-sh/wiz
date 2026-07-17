@@ -1,0 +1,12 @@
+{
+    "compiler": {
+        "rootDir": ".",
+        "outDir": "./dist"
+    },
+    "files": {
+        "include": [
+            "*.wiz",
+            "*.d.wiz"
+        ]
+    }
+}

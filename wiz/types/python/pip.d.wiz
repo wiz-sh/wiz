@@ -1,0 +1,31 @@
+# pip exposes the same command surface through pip and pip3.
+
+declare command pip {
+    cache(action: "dir" | "info" | "list" | "purge" | "remove", pattern?: string): status
+    check(): status
+    config(action: "debug" | "edit" | "get" | "list" | "set" | "unset", key?: string, value?: string, scope?: "--global" | "--site" | "--user"): status
+    debug(option?: "--platform" | "--python-version" | "--implementation" | "--abi", value?: string): stream
+    download(requirement: string, option?: "--dest" | "--no-deps" | "--only-binary" | "--no-binary" | "--platform" | "--python-version", value?: string, ...requirements: string[]): status
+    freeze(option?: "--all" | "--exclude-editable" | "--local" | "--path" | "--user", value?: path): stream
+    hash(file: file, algorithm?: "md5" | "sha256" | "sha384" | "sha512"): string
+    index(action: "versions", package: string, option?: "--index-url" | "--extra-index-url" | "--no-index" | "--pre", value?: string): stream
+    inspect(option?: "--local" | "--path" | "--user", value?: path): stream
+    install(requirement: string, option?: "-c" | "--constraint" | "-e" | "--editable" | "--extra-index-url" | "-f" | "--find-links" | "--force-reinstall" | "--index-url" | "--no-cache-dir" | "--no-deps" | "--no-index" | "--no-input" | "--pre" | "--prefix" | "-r" | "--requirement" | "--root" | "--target" | "--upgrade" | "--user", value?: string, ...requirements: string[]): status
+    list(option?: "--editable" | "--exclude" | "--format" | "--include-editable" | "--local" | "--not-required" | "--outdated" | "--path" | "--uptodate" | "--user", value?: string): stream
+    show(package: string, option?: "--files" | "--verbose", ...packages: string[]): stream
+    uninstall(package: string, option?: "-r" | "--requirement" | "-y" | "--yes", value?: file, ...packages: string[]): status
+    wheel(requirement: string, option?: "--no-deps" | "--no-binary" | "--only-binary" | "-r" | "--requirement" | "-w" | "--wheel-dir", value?: string, ...requirements: string[]): status
+}
+
+declare command pip3 {
+    cache(action: "dir" | "info" | "list" | "purge" | "remove", pattern?: string): status
+    check(): status
+    config(action: "debug" | "edit" | "get" | "list" | "set" | "unset", key?: string, value?: string, scope?: "--global" | "--site" | "--user"): status
+    download(requirement: string, option?: "--dest" | "--no-deps" | "--only-binary" | "--no-binary" | "--platform" | "--python-version", value?: string, ...requirements: string[]): status
+    freeze(option?: "--all" | "--exclude-editable" | "--local" | "--path" | "--user", value?: path): stream
+    install(requirement: string, option?: "-c" | "--constraint" | "-e" | "--editable" | "--extra-index-url" | "-f" | "--find-links" | "--force-reinstall" | "--index-url" | "--no-cache-dir" | "--no-deps" | "--no-index" | "--no-input" | "--pre" | "--prefix" | "-r" | "--requirement" | "--root" | "--target" | "--upgrade" | "--user", value?: string, ...requirements: string[]): status
+    list(option?: "--editable" | "--format" | "--local" | "--outdated" | "--uptodate" | "--user", value?: string): stream
+    show(package: string, option?: "--files" | "--verbose", ...packages: string[]): stream
+    uninstall(package: string, option?: "-r" | "--requirement" | "-y" | "--yes", value?: file, ...packages: string[]): status
+    wheel(requirement: string, option?: "--no-deps" | "--no-binary" | "--only-binary" | "-r" | "--requirement" | "-w" | "--wheel-dir", value?: string, ...requirements: string[]): status
+}

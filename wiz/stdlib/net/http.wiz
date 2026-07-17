@@ -1,0 +1,40 @@
+## Writes a complete HTTP/1.1 response to standard output.
+wiz_http_response(
+    int status,
+    string reason,
+    string content_type,
+    string body
+): stream {
+    local -T int length="${#body}"
+
+    printf 'HTTP/1.1 %s %s\r\n' "$status" "$reason"
+    printf 'Content-Type: %s\r\n' "$content_type"
+    printf 'Content-Length: %s\r\n' "$length"
+    printf 'Connection: close\r\n\r\n'
+    printf '%s' "$body"
+}
+
+## Serves one deterministic response and exits after the client disconnects.
+wiz_http_serve_once(
+    int port,
+    int status,
+    string reason,
+    string content_type,
+    string body
+): status {
+    wiz needs nc || return $?
+
+    wiz_http_response "$status" "$reason" "$content_type" "$body" |
+        nc -l "$port"
+}
+
+## Runs a netcat HTTP server whose handler prints one complete response.
+wiz_http_serve(int port, string handler): status {
+    wiz needs nc || return $?
+
+    while true; do
+        "$handler" | nc -l "$port" || return $?
+    done
+}
+
+export -f wiz_http_response wiz_http_serve_once wiz_http_serve

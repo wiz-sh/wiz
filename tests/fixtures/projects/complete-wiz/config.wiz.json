@@ -1,0 +1,45 @@
+{
+    "$schema": "../../../../packages/config/schemas/config.wiz.schema.json",
+    "compiler": {
+        "target": "bash",
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "sourceMap": true,
+        "declaration": false,
+        "noEmitOnError": true,
+        "runtimeChecks": "boundaries"
+    },
+    "typeChecking": {
+        "strict": true,
+        "allowAny": false,
+        "implicitAny": false,
+        "unknownCommands": "warning",
+        "checkSourcedFiles": true,
+        "checkDeclarationFiles": true
+    },
+    "formatter": {
+        "indentStyle": "space",
+        "indentWidth": 4,
+        "lineWidth": 100,
+        "quoteStyle": "preserve",
+        "trailingNewline": true
+    },
+    "linter": {
+        "enabled": true,
+        "recommended": true,
+        "rules": {
+            "correctness/no-undefined-variable": "error"
+        }
+    },
+    "files": {
+        "include": [
+            "src/**/*.wiz",
+            "src/**/*.d.wiz"
+        ],
+        "exclude": [
+            "dist/**",
+            "node_modules/**",
+            "wiz_modules/**"
+        ]
+    }
+}

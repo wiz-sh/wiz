@@ -1,0 +1,17 @@
+# PowerShell commands used by generated native PowerShell scripts.
+
+declare env HOME: path
+declare env PATH: string
+declare env PWD: path
+
+declare command Write-Output(...values: unknown[]): stream
+declare command Write-Error(...values: unknown[]): stream
+declare command Get-Content(path: path): stream
+declare command Set-Content(path: path, value: string): status
+declare command Test-Path(path: path): bool
+declare command Join-Path(parent: path, child: path): path
+declare command Resolve-Path(path: path): path
+declare command Remove-Item(path: path, ...arguments: string[]): status
+declare command Copy-Item(source: path, destination: path, ...arguments: string[]): status
+declare command Move-Item(source: path, destination: path, ...arguments: string[]): status
+declare command exit(status?: int): never

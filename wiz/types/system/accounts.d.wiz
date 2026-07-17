@@ -1,0 +1,26 @@
+# User, group, password, identity-database, and platform account administration.
+
+## Creates a Debian-style user or group with explicit identity and home settings.
+declare command adduser(option?: "--add-extra-groups" | "--allow-all-names" | "--allow-bad-names" | "--comment" | "--conf" | "--debug" | "--disabled-login" | "--disabled-password" | "--firstgid" | "--firstuid" | "--gid" | "--group" | "--home" | "--ingroup" | "--lastgid" | "--lastuid" | "--no-create-home" | "--quiet" | "--shell" | "--system" | "--uid" | "--verbose", value?: string, user: string, group?: string): status
+
+## Creates a Linux user with UID, group, home, shell, expiry, and subordinate-ID controls.
+declare command useradd(option?: "-b" | "-c" | "-d" | "-D" | "-e" | "-f" | "-F" | "-g" | "-G" | "-k" | "-K" | "-l" | "-m" | "-M" | "-N" | "-o" | "-p" | "-r" | "-R" | "-s" | "-u" | "-U" | "-Z" | "--add-subgids-for-system" | "--add-subuids-for-system" | "--badname" | "--base-dir" | "--btrfs-subvolume-home" | "--comment" | "--create-home" | "--defaults" | "--expiredate" | "--inactive" | "--key" | "--no-create-home" | "--no-log-init" | "--no-user-group" | "--prefix" | "--root" | "--selinux-user" | "--shell" | "--skel" | "--system" | "--uid" | "--user-group", value?: string, user: string): status
+
+## Changes an existing Linux user's identity, group, home, shell, lock, and expiry state.
+declare command usermod(option?: "-a" | "-b" | "-c" | "-d" | "-e" | "-f" | "-g" | "-G" | "-l" | "-L" | "-m" | "-o" | "-p" | "-P" | "-r" | "-R" | "-s" | "-u" | "-U" | "-v" | "-V" | "-w" | "-W" | "-Z" | "--add-subgids" | "--add-subuids" | "--append" | "--badname" | "--comment" | "--del-subgids" | "--del-subuids" | "--expiredate" | "--gid" | "--groups" | "--home" | "--inactive" | "--lock" | "--login" | "--move-home" | "--password" | "--prefix" | "--remove-from-subgroups" | "--root" | "--selinux-user" | "--shell" | "--uid" | "--unlock", value?: string, user: string): status
+
+declare command userdel(option?: "-f" | "-r" | "-R" | "-P" | "-Z" | "--force" | "--prefix" | "--remove" | "--root" | "--selinux-user", value?: path, user: string): status
+declare command deluser(option?: "--backup" | "--backup-to" | "--conf" | "--only-if-empty" | "--quiet" | "--remove-all-files" | "--remove-home" | "--system" | "--verbose", value?: path, user: string, group?: string): status
+
+declare command groupadd(option?: "-f" | "-g" | "-K" | "-o" | "-p" | "-r" | "-R" | "-P" | "-U" | "--force" | "--gid" | "--key" | "--members" | "--non-unique" | "--password" | "--prefix" | "--root" | "--system", value?: string, group: string): status
+declare command groupmod(option?: "-a" | "-g" | "-n" | "-o" | "-p" | "-R" | "-P" | "-U" | "--append" | "--gid" | "--members" | "--new-name" | "--non-unique" | "--password" | "--prefix" | "--root", value?: string, group: string): status
+declare command groupdel(option?: "-f" | "-R" | "-P" | "--force" | "--prefix" | "--root", value?: path, group: string): status
+declare command delgroup(option?: "--conf" | "--only-if-empty" | "--quiet" | "--system" | "--verbose", value?: string, group: string): status
+declare command gpasswd(option?: "-A" | "-M" | "-R" | "-a" | "-d" | "-Q" | "-r" | "-R", value?: string, group: string): status
+
+declare command passwd(option?: "-S" | "-a" | "-d" | "-e" | "-i" | "-k" | "-l" | "-n" | "-q" | "-R" | "-S" | "-u" | "-w" | "-x" | "--all" | "--delete" | "--expire" | "--inactive" | "--keep-tokens" | "--lock" | "--mindays" | "--prefix" | "--quiet" | "--root" | "--status" | "--unlock" | "--warndays" | "--maxdays", value?: string, user?: string): status
+declare command chage(option?: "-d" | "-E" | "-I" | "-l" | "-m" | "-M" | "-R" | "-W" | "--day-lastday" | "--expiredate" | "--inactive" | "--lastday" | "--list" | "--maxdays" | "--mindays" | "--root" | "--warndays", value?: string, user: string): status
+declare command chpasswd(option?: "-c" | "-e" | "-m" | "-R" | "-s" | "--crypt-method" | "--encrypted" | "--md5" | "--root" | "--sha-rounds", value?: string): status
+
+## Reads hosts, passwd, group, services, and other configured name-service databases.
+declare command getent(option?: "-A" | "-i" | "-s" | "-V" | "--no-idn" | "--service", value?: string, database: "ahosts" | "ahostsv4" | "ahostsv6" | "aliases" | "ethers" | "group" | "gshadow" | "hosts" | "initgroups" | "netgroup" | "networks" | "passwd" | "protocols" | "rpc" | "services" | "shadow", key?: string, ...keys: string[]): stream

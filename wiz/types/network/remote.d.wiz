@@ -1,0 +1,6 @@
+# Remote shells and file synchronization.
+
+declare command ssh(option?: "-4" | "-6" | "-A" | "-C" | "-F" | "-i" | "-J" | "-L" | "-N" | "-o" | "-p" | "-R" | "-T" | "-v", value?: string, destination: string, command?: string, ...arguments: string[]): status
+declare command scp(option?: "-3" | "-4" | "-6" | "-C" | "-F" | "-i" | "-J" | "-l" | "-o" | "-P" | "-p" | "-q" | "-r" | "-v", value?: string, source: path, destination: string, ...sources: path[]): status
+declare command sftp(option?: "-4" | "-6" | "-B" | "-b" | "-C" | "-F" | "-i" | "-J" | "-o" | "-P" | "-q" | "-R" | "-v", value?: string, destination: string): status
+declare command rsync(option?: "-a" | "-c" | "-e" | "-h" | "-n" | "-P" | "-q" | "-r" | "-u" | "-v" | "-z" | "--archive" | "--delete" | "--dry-run" | "--exclude" | "--progress", value?: string, source: path, destination: string, ...sources: path[]): status

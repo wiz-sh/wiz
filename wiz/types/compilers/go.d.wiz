@@ -1,0 +1,19 @@
+# Go compiler, module, workspace, and testing command.
+
+declare command go {
+    build(package?: string, option?: "-a" | "-buildmode" | "-cover" | "-gcflags" | "-ldflags" | "-mod" | "-o" | "-p" | "-race" | "-tags" | "-trimpath" | "-v" | "-x", value?: string, ...packages: string[]): status
+    clean(option?: "-cache" | "-fuzzcache" | "-i" | "-modcache" | "-n" | "-r" | "-testcache" | "-x"): status
+    env(variable?: string, option?: "-changed" | "-json" | "-u" | "-w", value?: string, ...variables: string[]): stream
+    fmt(package?: string, option?: "-n" | "-x", ...packages: string[]): status
+    generate(package?: string, option?: "-n" | "-run" | "-skip" | "-v" | "-x", value?: string, ...packages: string[]): status
+    get(package: string, option?: "-d" | "-insecure" | "-t" | "-u" | "-v", ...packages: string[]): status
+    install(package: string, option?: "-mod" | "-race" | "-tags" | "-trimpath", value?: string, ...packages: string[]): status
+    list(package?: string, option?: "-deps" | "-e" | "-export" | "-f" | "-json" | "-m" | "-mod" | "-test" | "-u" | "-versions", value?: string, ...packages: string[]): stream
+    mod(action: "download" | "edit" | "graph" | "init" | "tidy" | "vendor" | "verify" | "why", value?: string, option?: "-go" | "-json" | "-module" | "-require" | "-toolchain", optionValue?: string): status
+    run(package: string, ...arguments: string[]): status
+    test(package?: string, option?: "-bench" | "-count" | "-cover" | "-coverprofile" | "-failfast" | "-fuzz" | "-json" | "-race" | "-run" | "-short" | "-timeout" | "-v", value?: string, ...packages: string[]): status
+    tool(tool: string, ...arguments: string[]): status
+    version(): string
+    vet(package?: string, option?: "-json" | "-n" | "-vettool" | "-x", value?: string, ...packages: string[]): status
+    work(action: "edit" | "init" | "sync" | "use" | "vendor", value?: string, ...directories: directory[]): status
+}

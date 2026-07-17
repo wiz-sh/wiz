@@ -1,0 +1,239 @@
+## Distributed version control for repositories, worktrees, and remotes.
+declare command git {
+    ## Adds file content to the index.
+    add(...paths: path[]): status
+    option -A, --all for add
+    option -N, --intent-to-add for add
+    option -p, --patch for add
+    option -u, --update for add
+    option -f, --force for add
+    option -n, --dry-run for add
+    option --ignore-errors for add
+    option --ignore-missing for add
+    option --pathspec-from-file <file: file> for add
+    option --pathspec-file-nul requires(--pathspec-from-file) for add
+
+    ## Lists, creates, renames, copies, or deletes branches.
+    branch(name?: string, startPoint?: string): status
+    option -a, --all for branch
+    option -d, --delete for branch
+    option -D for branch
+    option -m, --move for branch
+    option -M for branch
+    option -c, --copy for branch
+    option -C for branch
+    option -r, --remotes for branch
+    option -v, --verbose repeatable for branch
+    option --contains <commit: string> for branch
+    option --format <format: string> for branch
+    option --merged <commit: string> for branch
+    option --no-merged <commit: string> for branch
+    option --points-at <object: string> for branch
+    option --show-current for branch
+    option --sort <key: string> repeatable for branch
+    option --track <mode: "direct" | "inherit"> for branch
+
+    ## Switches branches or restores working-tree paths.
+    checkout(revision?: string, ...paths: path[]): status
+    option -b <branch: string> for checkout
+    option -B <branch: string> for checkout
+    option -f, --force for checkout
+    option -q, --quiet for checkout
+    option --conflict <style: "merge" | "diff3" | "zdiff3"> for checkout
+    option --detach for checkout
+    option --orphan <branch: string> for checkout
+    option --ours for checkout
+    option --pathspec-from-file <file: file> for checkout
+    option --pathspec-file-nul requires(--pathspec-from-file) for checkout
+    option --theirs for checkout
+    option --track for checkout
+
+    ## Clones a repository into a new directory.
+    clone(repository: string, directory?: directory): status
+    option -b, --branch <name: string> for clone
+    option -c, --config <keyValue: string> repeatable for clone
+    option -d, --dissociate for clone
+    option -j, --jobs <count: int> for clone
+    option -l, --local for clone
+    option -n, --no-checkout for clone
+    option -o, --origin <name: string> for clone
+    option -q, --quiet for clone
+    option --bare for clone
+    option --depth <count: int> for clone
+    option --filter <specification: string> for clone
+    option --mirror for clone
+    option --no-hardlinks for clone
+    option --recurse-submodules for clone
+    option --reference <repository: path> repeatable for clone
+    option --reference-if-able <repository: path> repeatable for clone
+    option --separate-git-dir <directory: directory> for clone
+    option --shallow-since <date: string> for clone
+    option --single-branch for clone
+    option --sparse for clone
+    option --template <directory: directory> for clone
+
+    ## Records staged changes in repository history.
+    commit(...paths: path[]): status
+    option -a, --all for commit
+    option -m, --message <message: string> repeatable for commit
+    option -C, --reuse-message <commit: string> for commit
+    option -c, --reedit-message <commit: string> for commit
+    option -F, --file <file: file> for commit
+    option -S, --gpg-sign <key: string> for commit
+    option --amend for commit
+    option --allow-empty for commit
+    option --allow-empty-message for commit
+    option --author <author: string> for commit
+    option --date <date: string> for commit
+    option --dry-run for commit
+    option --fixup <commit: string> for commit
+    option --no-edit for commit
+    option --no-verify for commit
+    option --only for commit
+    option --patch for commit
+    option --reset-author for commit
+    option --signoff for commit
+
+    ## Shows changes between commits, the index, and the working tree.
+    diff(first?: string, second?: string, ...paths: path[]): stream
+    option --cached for diff
+    option --check for diff
+    option --color <mode: "always" | "auto" | "never"> for diff
+    option --diff-filter <filter: string> for diff
+    option --exit-code for diff
+    option --name-only for diff
+    option --name-status for diff
+    option --no-index for diff
+    option --numstat for diff
+    option --patch for diff
+    option --quiet for diff
+    option --stat for diff
+    option --staged for diff
+    option --word-diff <mode: "color" | "plain" | "porcelain" | "none"> for diff
+
+    ## Downloads objects and references from remotes.
+    fetch(remote?: string, ...refspecs: string[]): status
+    option -j, --jobs <count: int> for fetch
+    option --all for fetch
+    option --atomic for fetch
+    option --depth <count: int> for fetch
+    option --dry-run for fetch
+    option --force for fetch
+    option --no-tags for fetch
+    option --prune for fetch
+    option --prune-tags for fetch
+    option --recurse-submodules <mode: "yes" | "on-demand" | "no"> for fetch
+    option --set-upstream for fetch
+    option --tags for fetch
+
+    ## Creates an empty repository or reinitializes an existing one.
+    init(directory?: directory): status
+    option -b, --initial-branch <branch: string> for init
+    option -q, --quiet for init
+    option --bare for init
+    option --object-format <format: "sha1" | "sha256"> for init
+    option --separate-git-dir <directory: directory> for init
+    option --shared <permission: string> for init
+    option --template <directory: directory> for init
+
+    ## Displays commit history.
+    log(revision?: string, ...paths: path[]): stream
+    option -n, --max-count <count: int> for log
+    option --all for log
+    option --author <pattern: string> for log
+    option --before <date: string> for log
+    option --decorate for log
+    option --follow for log
+    option --format <format: string> for log
+    option --grep <pattern: string> repeatable for log
+    option --graph for log
+    option --oneline for log
+    option --patch for log
+    option --since <date: string> for log
+    option --stat for log
+
+    ## Fetches from and integrates with another repository or branch.
+    pull(remote?: string, branch?: string): status
+    option --autostash for pull
+    option --ff-only conflicts(--no-ff) for pull
+    option --force for pull
+    option --no-ff conflicts(--ff-only) for pull
+    option --no-rebase conflicts(--rebase) for pull
+    option --prune for pull
+    option --rebase conflicts(--no-rebase) for pull
+    option --recurse-submodules <mode: "yes" | "on-demand" | "no"> for pull
+    option --tags for pull
+
+    ## Updates remote references and sends required objects.
+    push(remote?: string, ...refspecs: string[]): status
+    option -u, --set-upstream for push
+    option --all for push
+    option --atomic for push
+    option --delete for push
+    option --dry-run for push
+    option --follow-tags for push
+    option --force conflicts(--force-with-lease) for push
+    option --force-with-lease conflicts(--force) for push
+    option --mirror for push
+    option --no-verify for push
+    option --porcelain for push
+    option --prune for push
+    option --tags for push
+
+    ## Restores working-tree files from another source.
+    restore(...paths: path[]): status
+    option -p, --patch for restore
+    option -q, --quiet for restore
+    option --conflict <style: "merge" | "diff3" | "zdiff3"> for restore
+    option --ignore-skip-worktree-bits for restore
+    option --ours for restore
+    option --overlay for restore
+    option --pathspec-from-file <file: file> for restore
+    option --pathspec-file-nul requires(--pathspec-from-file) for restore
+    option --source <tree: string> for restore
+    option --staged for restore
+    option --theirs for restore
+    option --worktree for restore
+
+    ## Shows working-tree status.
+    status(...paths: path[]): stream
+    option -b, --branch for status
+    option -s, --short for status
+    option --ahead-behind for status
+    option --ignored <mode: "traditional" | "matching" | "no"> for status
+    option --long for status
+    option --no-renames for status
+    option --porcelain <version: "v1" | "v2"> for status
+    option --renames for status
+    option --show-stash for status
+    option --untracked-files <mode: "no" | "normal" | "all"> for status
+
+    ## Switches the current branch.
+    switch(branch?: string): status
+    option -c, --create <branch: string> for switch
+    option -C, --force-create <branch: string> for switch
+    option -d, --detach for switch
+    option -f, --discard-changes for switch
+    option -q, --quiet for switch
+    option --guess for switch
+    option --merge for switch
+    option --no-guess for switch
+    option --orphan <branch: string> for switch
+    option --track <mode: "direct" | "inherit"> for switch
+
+    ## Creates, lists, deletes, or verifies tags.
+    tag(tag?: string, revision?: string): status
+    option -a, --annotate for tag
+    option -d, --delete for tag
+    option -f, --force for tag
+    option -l, --list <pattern: string> for tag
+    option -m, --message <message: string> repeatable for tag
+    option -s, --sign for tag
+    option -v, --verify for tag
+    option --contains <commit: string> for tag
+    option --format <format: string> for tag
+    option --merged <commit: string> for tag
+    option --no-merged <commit: string> for tag
+    option --points-at <object: string> for tag
+    option --sort <key: string> repeatable for tag
+}

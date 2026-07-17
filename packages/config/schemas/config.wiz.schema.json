@@ -1,0 +1,163 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://wiz.sh/schemas/config.wiz.schema.json",
+    "title": "Wiz language configuration",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "$schema": {
+            "type": "string"
+        },
+        "extends": {
+            "type": "string"
+        },
+        "compiler": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "target": {
+                    "enum": [
+                        "bash",
+                        "zsh",
+                        "sh",
+                        "fish",
+                        "powershell",
+                        "cmd"
+                    ]
+                },
+                "rootDir": {
+                    "type": "string"
+                },
+                "outDir": {
+                    "type": "string"
+                },
+                "sourceMap": {
+                    "type": "boolean"
+                },
+                "declaration": {
+                    "type": "boolean"
+                },
+                "noEmitOnError": {
+                    "type": "boolean"
+                },
+                "runtimeChecks": {
+                    "enum": [
+                        "none",
+                        "boundaries",
+                        "all"
+                    ]
+                },
+                "bundle": {
+                    "type": "boolean"
+                },
+                "minify": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "typeChecking": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "strict": {
+                    "type": "boolean"
+                },
+                "allowAny": {
+                    "type": "boolean"
+                },
+                "implicitAny": {
+                    "type": "boolean"
+                },
+                "unknownCommands": {
+                    "enum": [
+                        "allow",
+                        "warning",
+                        "error"
+                    ]
+                },
+                "checkSourcedFiles": {
+                    "type": "boolean"
+                },
+                "checkDeclarationFiles": {
+                    "type": "boolean"
+                },
+                "types": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "minLength": 1
+                    },
+                    "uniqueItems": true
+                }
+            }
+        },
+        "formatter": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "indentStyle": {
+                    "enum": [
+                        "space",
+                        "tab"
+                    ]
+                },
+                "indentWidth": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 16
+                },
+                "lineWidth": {
+                    "type": "integer",
+                    "minimum": 40,
+                    "maximum": 320
+                },
+                "quoteStyle": {
+                    "const": "preserve"
+                },
+                "trailingNewline": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "linter": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "recommended": {
+                    "type": "boolean"
+                },
+                "rules": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "enum": [
+                            "off",
+                            "warning",
+                            "error"
+                        ]
+                    }
+                }
+            }
+        },
+        "files": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "include": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "exclude": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

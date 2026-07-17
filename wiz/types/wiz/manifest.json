@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../packages/pm/schemas/manifest.schema.json",
+    "name": "@types/wiz",
+    "version": "0.1.0",
+    "main": "index.d.wiz",
+    "description": "Complete typed declarations for the Wiz CLI",
+    "license": "MIT",
+    "scripts": {},
+    "bin": {},
+    "dependencies": {}
+}

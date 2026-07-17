@@ -1,0 +1,694 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Wiz",
+    "scopeName": "source.wiz",
+    "patterns": [
+        {
+            "include": "#shebang"
+        },
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#heredoc"
+        },
+        {
+            "include": "#type-import"
+        },
+        {
+            "include": "#scoped-import"
+        },
+        {
+            "include": "#command-declaration"
+        },
+        {
+            "include": "#environment-declaration"
+        },
+        {
+            "include": "#typed-positional-parameter"
+        },
+        {
+            "include": "#typed-declaration"
+        },
+        {
+            "include": "#function-signature"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#arithmetic"
+        },
+        {
+            "include": "#command-substitution"
+        },
+        {
+            "include": "#parameter-expansion"
+        },
+        {
+            "include": "#process-substitution"
+        },
+        {
+            "include": "#conditionals"
+        },
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#builtins"
+        },
+        {
+            "include": "#redirections"
+        },
+        {
+            "include": "#operators"
+        },
+        {
+            "include": "#assignments"
+        },
+        {
+            "include": "#constants"
+        },
+        {
+            "include": "#numbers"
+        },
+        {
+            "include": "#commands"
+        }
+    ],
+    "repository": {
+        "scoped-import": {
+            "patterns": [
+                {
+                    "name": "meta.import.scoped.wiz",
+                    "match": "^([ \\t]*)(source|\\.)(\\s+)(-I|--import)(\\s+)((?:[A-Za-z_][A-Za-z0-9_]*\\s+)+)(--)(\\s+)(['\\\"])([^'\\\"]+)(\\9)",
+                    "captures": {
+                        "2": {
+                            "name": "keyword.control.import.wiz"
+                        },
+                        "4": {
+                            "name": "storage.modifier.import.wiz"
+                        },
+                        "6": {
+                            "name": "variable.other.import.wiz"
+                        },
+                        "7": {
+                            "name": "punctuation.separator.arguments.wiz"
+                        },
+                        "9": {
+                            "name": "punctuation.definition.string.begin.wiz"
+                        },
+                        "10": {
+                            "name": "string.quoted.other.path.wiz"
+                        },
+                        "11": {
+                            "name": "punctuation.definition.string.end.wiz"
+                        }
+                    }
+                }
+            ]
+        },
+        "type-import": {
+            "patterns": [
+                {
+                    "name": "meta.import.type.wiz",
+                    "match": "^([ \\t]*)(source|\\.)(\\s+)(-T)(\\s+)(['\\\"])([^'\\\"]+)(\\6)",
+                    "captures": {
+                        "2": {
+                            "name": "keyword.control.import.wiz"
+                        },
+                        "4": {
+                            "name": "storage.modifier.type-only.wiz"
+                        },
+                        "6": {
+                            "name": "punctuation.definition.string.begin.wiz"
+                        },
+                        "7": {
+                            "name": "string.quoted.other.package.wiz"
+                        },
+                        "8": {
+                            "name": "punctuation.definition.string.end.wiz"
+                        }
+                    }
+                }
+            ]
+        },
+        "shebang": {
+            "patterns": [
+                {
+                    "name": "comment.line.shebang.wiz",
+                    "match": "\\A#!.*$"
+                }
+            ]
+        },
+        "comments": {
+            "patterns": [
+                {
+                    "name": "comment.line.documentation.wiz",
+                    "begin": "^\\s*##",
+                    "end": "$",
+                    "patterns": [
+                        {
+                            "name": "storage.type.documentation.tag.wiz",
+                            "match": "@(param|returns?|example|deprecated|see)\\b"
+                        },
+                        {
+                            "name": "variable.parameter.documentation.wiz",
+                            "match": "(?<=@param\\s)[A-Za-z_][A-Za-z0-9_]*"
+                        }
+                    ]
+                },
+                {
+                    "name": "comment.line.number-sign.wiz",
+                    "match": "#.*$"
+                }
+            ]
+        },
+        "heredoc": {
+            "patterns": [
+                {
+                    "name": "meta.heredoc.wiz",
+                    "contentName": "string.unquoted.heredoc.wiz",
+                    "begin": "(<<-?)(\\s*)(['\"]?)([A-Za-z_][A-Za-z0-9_]*)(\\3)",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.operator.redirect.wiz"
+                        },
+                        "3": {
+                            "name": "punctuation.definition.string.begin.wiz"
+                        },
+                        "4": {
+                            "name": "entity.name.tag.heredoc.wiz"
+                        },
+                        "5": {
+                            "name": "punctuation.definition.string.end.wiz"
+                        }
+                    },
+                    "end": "^\\s*\\4\\s*$",
+                    "endCaptures": {
+                        "0": {
+                            "name": "entity.name.tag.heredoc.wiz"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#command-substitution"
+                        },
+                        {
+                            "include": "#parameter-expansion"
+                        }
+                    ]
+                }
+            ]
+        },
+        "command-declaration": {
+            "patterns": [
+                {
+                    "match": "\\b(declare)(\\s+)(command)(\\s+)([A-Za-z_][A-Za-z0-9_.+-]*)",
+                    "captures": {
+                        "1": {
+                            "name": "storage.type.declaration.wiz"
+                        },
+                        "3": {
+                            "name": "storage.modifier.command.wiz"
+                        },
+                        "5": {
+                            "name": "entity.name.type.command.wiz"
+                        }
+                    }
+                }
+            ]
+        },
+        "environment-declaration": {
+            "patterns": [
+                {
+                    "match": "\\b(declare)(\\s+)(env)(\\s+)([A-Za-z_][A-Za-z0-9_]*)(\\?)?(\\s*)(:)(\\s*)((?:map\\s*<\\s*string\\s*,\\s*(?:string|int)\\s*>|string|int|bool|path|file|directory|bytes|status|stream|void|any|unknown|never)(?:\\[\\]|\\?)?)",
+                    "captures": {
+                        "1": {
+                            "name": "storage.type.declaration.wiz"
+                        },
+                        "3": {
+                            "name": "storage.modifier.environment.wiz"
+                        },
+                        "5": {
+                            "name": "variable.other.environment.wiz"
+                        },
+                        "6": {
+                            "name": "keyword.operator.optional.wiz"
+                        },
+                        "8": {
+                            "name": "punctuation.separator.type.wiz"
+                        },
+                        "10": {
+                            "name": "support.type.wiz"
+                        }
+                    }
+                }
+            ]
+        },
+        "typed-positional-parameter": {
+            "patterns": [
+                {
+                    "match": "\\b(declare|local)(\\s+)(-[A-Za-z]*T[A-Za-z]*)(\\s+)((?:map\\s*<\\s*string\\s*,\\s*(?:string|int)\\s*>|string|int|bool|path|file|directory|bytes|status|stream|void|any|unknown|never)(?:\\[\\]|\\?)?)(\\s+)(['\"]?)(\\$[1-9][0-9]*)(\\7)",
+                    "captures": {
+                        "1": {
+                            "name": "storage.type.declaration.wiz"
+                        },
+                        "3": {
+                            "name": "storage.modifier.wiz"
+                        },
+                        "5": {
+                            "name": "support.type.wiz"
+                        },
+                        "7": {
+                            "name": "punctuation.definition.string.begin.wiz"
+                        },
+                        "8": {
+                            "name": "variable.language.positional.wiz"
+                        },
+                        "9": {
+                            "name": "punctuation.definition.string.end.wiz"
+                        }
+                    }
+                }
+            ]
+        },
+        "typed-declaration": {
+            "patterns": [
+                {
+                    "match": "\\b(declare|local)(\\s+)(-[A-Za-z]*T[A-Za-z]*)(\\s+)((?:map\\s*<\\s*string\\s*,\\s*(?:string|int)\\s*>|string|int|bool|path|file|directory|bytes|status|stream|void|any|unknown|never)(?:\\[\\]|\\?)?)(\\s+)([A-Za-z_][A-Za-z0-9_]*)",
+                    "captures": {
+                        "1": {
+                            "name": "storage.type.declaration.wiz"
+                        },
+                        "3": {
+                            "name": "storage.modifier.wiz"
+                        },
+                        "5": {
+                            "name": "support.type.wiz"
+                        },
+                        "7": {
+                            "name": "variable.other.assignment.wiz"
+                        }
+                    }
+                }
+            ]
+        },
+        "function-signature": {
+            "patterns": [
+                {
+                    "name": "meta.function.definition.wiz",
+                    "begin": "^([ \\t]*)([A-Za-z_][A-Za-z0-9_]*)([ \\t]*)(\\()",
+                    "beginCaptures": {
+                        "2": {
+                            "name": "entity.name.function.wiz"
+                        },
+                        "4": {
+                            "name": "punctuation.definition.parameters.begin.wiz"
+                        }
+                    },
+                    "end": "(\\))(\\s*)(?:(:)(\\s*)(status|string|stream|void))?(\\s*)(?=\\{)",
+                    "endCaptures": {
+                        "1": {
+                            "name": "punctuation.definition.parameters.end.wiz"
+                        },
+                        "3": {
+                            "name": "punctuation.separator.return-type.wiz"
+                        },
+                        "5": {
+                            "name": "support.type.return.wiz"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#typed-parameter"
+                        },
+                        {
+                            "include": "#strings"
+                        },
+                        {
+                            "include": "#constants"
+                        },
+                        {
+                            "include": "#numbers"
+                        },
+                        {
+                            "name": "punctuation.separator.parameter.wiz",
+                            "match": ","
+                        },
+                        {
+                            "name": "keyword.operator.assignment.wiz",
+                            "match": "="
+                        }
+                    ]
+                }
+            ]
+        },
+        "typed-parameter": {
+            "patterns": [
+                {
+                    "match": "((?:map\\s*<\\s*string\\s*,\\s*(?:string|int)\\s*>|string|int|bool|path|file|directory|bytes|status|stream|void|any|unknown|never)(?:\\[\\]|\\?)?)(\\s+)([A-Za-z_][A-Za-z0-9_]*)(\\?)?",
+                    "captures": {
+                        "1": {
+                            "name": "support.type.parameter.wiz"
+                        },
+                        "3": {
+                            "name": "variable.parameter.function.wiz"
+                        },
+                        "4": {
+                            "name": "keyword.operator.optional.wiz"
+                        }
+                    }
+                },
+                {
+                    "match": "([A-Za-z_][A-Za-z0-9_]*)(\\?)?(\\s*)(:)(\\s*)((?:map\\s*<\\s*string\\s*,\\s*(?:string|int)\\s*>|string|int|bool|path|file|directory|bytes|status|stream|void|any|unknown|never)(?:\\[\\]|\\?)?)",
+                    "captures": {
+                        "1": {
+                            "name": "variable.parameter.command.wiz"
+                        },
+                        "2": {
+                            "name": "keyword.operator.optional.wiz"
+                        },
+                        "4": {
+                            "name": "punctuation.separator.type.wiz"
+                        },
+                        "6": {
+                            "name": "support.type.parameter.wiz"
+                        }
+                    }
+                }
+            ]
+        },
+        "strings": {
+            "patterns": [
+                {
+                    "name": "string.quoted.single.ansi-c.wiz",
+                    "begin": "\\$'",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.begin.wiz"
+                        }
+                    },
+                    "end": "'",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.end.wiz"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.wiz",
+                            "match": "\\\\(?:[abefnrtv\\\\'\"]|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4}|[0-7]{1,3})"
+                        }
+                    ]
+                },
+                {
+                    "name": "string.quoted.single.wiz",
+                    "begin": "'",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.begin.wiz"
+                        }
+                    },
+                    "end": "'",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.end.wiz"
+                        }
+                    }
+                },
+                {
+                    "name": "string.quoted.double.wiz",
+                    "begin": "\"",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.begin.wiz"
+                        }
+                    },
+                    "end": "\"",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.end.wiz"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "name": "constant.character.escape.wiz",
+                            "match": "\\\\[\\\\\"$`nrt]"
+                        },
+                        {
+                            "include": "#arithmetic"
+                        },
+                        {
+                            "include": "#command-substitution"
+                        },
+                        {
+                            "include": "#parameter-expansion"
+                        }
+                    ]
+                }
+            ]
+        },
+        "arithmetic": {
+            "patterns": [
+                {
+                    "name": "meta.expansion.arithmetic.wiz",
+                    "begin": "\\$?\\(\\(",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.arithmetic.begin.wiz"
+                        }
+                    },
+                    "end": "\\)\\)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.arithmetic.end.wiz"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#parameter-expansion"
+                        },
+                        {
+                            "include": "#numbers"
+                        },
+                        {
+                            "include": "#operators"
+                        }
+                    ]
+                }
+            ]
+        },
+        "command-substitution": {
+            "patterns": [
+                {
+                    "name": "meta.subshell.command.wiz",
+                    "begin": "\\$\\(",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.subshell.begin.wiz"
+                        }
+                    },
+                    "end": "\\)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.subshell.end.wiz"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "$self"
+                        }
+                    ]
+                }
+            ]
+        },
+        "parameter-expansion": {
+            "patterns": [
+                {
+                    "name": "meta.expansion.parameter.wiz",
+                    "begin": "\\$\\{",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.variable.begin.wiz"
+                        }
+                    },
+                    "end": "\\}",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.variable.end.wiz"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "name": "variable.other.readwrite.wiz",
+                            "match": "[A-Za-z_][A-Za-z0-9_]*|[0-9]+|[@*#?$!-]"
+                        },
+                        {
+                            "include": "#strings"
+                        },
+                        {
+                            "include": "#operators"
+                        }
+                    ]
+                },
+                {
+                    "name": "variable.other.readwrite.wiz",
+                    "match": "\\$(?:[A-Za-z_][A-Za-z0-9_]*|[0-9]+|[@*#?$!-])"
+                }
+            ]
+        },
+        "process-substitution": {
+            "patterns": [
+                {
+                    "name": "meta.subshell.process.wiz",
+                    "begin": "[<>]\\(",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.process.begin.wiz"
+                        }
+                    },
+                    "end": "\\)",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.process.end.wiz"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "$self"
+                        }
+                    ]
+                }
+            ]
+        },
+        "conditionals": {
+            "patterns": [
+                {
+                    "name": "meta.condition.double-bracket.wiz",
+                    "begin": "\\[\\[",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.condition.begin.wiz"
+                        }
+                    },
+                    "end": "\\]\\]",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.condition.end.wiz"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#strings"
+                        },
+                        {
+                            "include": "#parameter-expansion"
+                        },
+                        {
+                            "include": "#constants"
+                        },
+                        {
+                            "include": "#numbers"
+                        },
+                        {
+                            "include": "#operators"
+                        }
+                    ]
+                }
+            ]
+        },
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.wiz",
+                    "match": "\\b(?:if|then|elif|else|fi|for|select|while|until|do|done|case|in|esac|function|return|break|continue|source|time|coproc)\\b"
+                }
+            ]
+        },
+        "builtins": {
+            "patterns": [
+                {
+                    "name": "support.function.builtin.wiz",
+                    "match": "\\b(?:alias|bg|builtin|caller|cd|command|compgen|complete|declare|dirs|disown|echo|enable|eval|exec|exit|export|false|fg|getopts|hash|help|history|jobs|kill|let|local|mapfile|popd|printf|pushd|pwd|read|readarray|readonly|set|shift|shopt|suspend|test|trap|true|type|typeset|ulimit|umask|unalias|unset|wait)\\b"
+                }
+            ]
+        },
+        "redirections": {
+            "patterns": [
+                {
+                    "name": "keyword.operator.redirect.wiz",
+                    "match": "(?:[0-9]+)?(?:<<<|<<-|<<|>>|>|<|<>|>&|<&|&>|&>>|>\\|)"
+                }
+            ]
+        },
+        "operators": {
+            "patterns": [
+                {
+                    "name": "keyword.operator.logical.wiz",
+                    "match": "&&|\\|\\||!"
+                },
+                {
+                    "name": "keyword.operator.pipeline.wiz",
+                    "match": "\\|&?"
+                },
+                {
+                    "name": "keyword.operator.comparison.wiz",
+                    "match": "==|!=|=~|-eq|-ne|-lt|-le|-gt|-ge|-z|-n|-e|-f|-d|-r|-w|-x"
+                },
+                {
+                    "name": "keyword.operator.arithmetic.wiz",
+                    "match": "\\+\\+|--|\\+=|-=|\\*=|/=|%=|[+*/%<>&^~-]"
+                }
+            ]
+        },
+        "assignments": {
+            "patterns": [
+                {
+                    "name": "variable.other.assignment.wiz",
+                    "match": "\\b[A-Za-z_][A-Za-z0-9_]*(?=\\+?=)"
+                },
+                {
+                    "name": "keyword.operator.assignment.wiz",
+                    "match": "\\+=|="
+                }
+            ]
+        },
+        "constants": {
+            "patterns": [
+                {
+                    "name": "constant.language.boolean.wiz",
+                    "match": "\\b(?:true|false)\\b"
+                }
+            ]
+        },
+        "numbers": {
+            "patterns": [
+                {
+                    "name": "constant.numeric.integer.wiz",
+                    "match": "(?<![A-Za-z_])-?\\b[0-9]+\\b"
+                }
+            ]
+        },
+        "commands": {
+            "patterns": [
+                {
+                    "match": "^([ \\t]*)(?:command[ \\t]+)?([A-Za-z_][A-Za-z0-9_.-]*)",
+                    "captures": {
+                        "2": {
+                            "name": "entity.name.function.call.wiz"
+                        }
+                    }
+                },
+                {
+                    "match": "([;|&][ \\t]*)(?:command[ \\t]+)?([A-Za-z_][A-Za-z0-9_.-]*)",
+                    "captures": {
+                        "2": {
+                            "name": "entity.name.function.call.wiz"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

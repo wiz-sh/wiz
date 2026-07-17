@@ -1,0 +1,22 @@
+# DNS lookup, validation, and troubleshooting clients.
+
+## Queries DNS with control over transport, server, record type, and output formatting.
+declare command dig(option?: "-4" | "-6" | "-b" | "-c" | "-f" | "-k" | "-m" | "-p" | "-q" | "-t" | "-u" | "-x" | "-y" | "+aaonly" | "+adflag" | "+all" | "+answer" | "+authority" | "+besteffort" | "+bufsize" | "+cdflag" | "+comments" | "+cookie" | "+dnssec" | "+edns" | "+expire" | "+fail" | "+identify" | "+ignore" | "+keepopen" | "+multiline" | "+noall" | "+noanswer" | "+noauthority" | "+noadditional" | "+nocmd" | "+nocomments" | "+noquestion" | "+norecurse" | "+nosearch" | "+nostats" | "+notcp" | "+opcode" | "+padding" | "+qr" | "+question" | "+recurse" | "+retry" | "+search" | "+short" | "+showsearch" | "+split" | "+stats" | "+subnet" | "+tcp" | "+timeout" | "+trace" | "+tries" | "+ttlid" | "+vc" | "+yaml", value?: string, server?: string, name?: string, recordType?: "A" | "AAAA" | "CAA" | "CNAME" | "DNSKEY" | "DS" | "HTTPS" | "MX" | "NAPTR" | "NS" | "PTR" | "SOA" | "SRV" | "SSHFP" | "SVCB" | "TLSA" | "TXT" | "ANY" | "AXFR" | "IXFR"): stream
+
+## Resolves a host name or address through the configured resolver.
+declare command host(option?: "-4" | "-6" | "-a" | "-A" | "-C" | "-d" | "-l" | "-m" | "-N" | "-R" | "-r" | "-s" | "-t" | "-T" | "-v" | "-V" | "-w" | "-W", value?: string, name: string, server?: string): stream
+
+## Performs interactive or one-shot DNS queries.
+declare command nslookup(option?: "-all" | "-class" | "-debug" | "-d2" | "-domain" | "-ignoretc" | "-port" | "-query" | "-recurse" | "-retry" | "-search" | "-timeout" | "-type" | "-vc", value?: string, name?: string, server?: string): stream
+
+## Queries DNS using DNSSEC-aware validation.
+declare command delv(option?: "-4" | "-6" | "-a" | "-b" | "-c" | "-d" | "-i" | "-m" | "-p" | "-q" | "-t" | "-x" | "+cdflag" | "+class" | "+dnssec" | "+multiline" | "+root" | "+short" | "+tcp" | "+trace" | "+trust" | "+type", value?: string, server?: string, name?: string, recordType?: "A" | "AAAA" | "CAA" | "CNAME" | "DNSKEY" | "DS" | "HTTPS" | "MX" | "NS" | "PTR" | "SOA" | "SRV" | "SVCB" | "TLSA" | "TXT"): stream
+
+## Provides a concise modern DNS client where installed.
+declare command dog(option?: "--dnssec" | "--edns" | "--help" | "--host" | "--json" | "--protocol" | "--query" | "--server" | "--short" | "--stats" | "--tcp" | "--tls" | "--type" | "--version", value?: string, name?: string, recordType?: "A" | "AAAA" | "CAA" | "CNAME" | "MX" | "NS" | "PTR" | "SOA" | "SRV" | "TXT"): stream
+
+## Queries DNS with ldns and optional DNSSEC tracing.
+declare command drill(option?: "-4" | "-6" | "-a" | "-b" | "-c" | "-D" | "-f" | "-k" | "-o" | "-p" | "-Q" | "-s" | "-t" | "-T" | "-V" | "-x", value?: string, server?: string, name?: string, recordType?: "A" | "AAAA" | "CAA" | "CNAME" | "DNSKEY" | "DS" | "MX" | "NS" | "PTR" | "SOA" | "SRV" | "TLSA" | "TXT"): stream
+
+declare command dnssec-keygen(option?: "-a" | "-b" | "-c" | "-E" | "-f" | "-K" | "-L" | "-n" | "-p" | "-S" | "-t" | "-T", value?: string, name: string): status
+declare command dnssec-signzone(option?: "-a" | "-c" | "-d" | "-e" | "-f" | "-g" | "-H" | "-K" | "-N" | "-o" | "-s" | "-t" | "-x" | "-z", value?: string, zoneFile: file, ...keyFiles: file[]): status

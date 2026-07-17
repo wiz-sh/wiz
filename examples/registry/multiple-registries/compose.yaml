@@ -1,0 +1,21 @@
+services:
+    official:
+        image: ${REGISTRY_IMAGE:-ghcr.io/hazelcaffe/wiz-registry:latest}
+        environment:
+            DATABASE_URL: ${OFFICIAL_DATABASE_URL:-postgres://wiz:development-only@postgres:5432/official}
+            REGISTRY_PUBLIC_URL: http://localhost:3001
+            SESSION_SECRET: ${OFFICIAL_SESSION_SECRET:-replace-this-development-secret}
+            TOKEN_PEPPER: ${OFFICIAL_TOKEN_PEPPER:-replace-this-development-pepper}
+            PASSWORD_PEPPER: ${OFFICIAL_PASSWORD_PEPPER:-replace-this-password-pepper}
+        ports:
+            - "3001:3000"
+    internal:
+        image: ${REGISTRY_IMAGE:-ghcr.io/hazelcaffe/wiz-registry:latest}
+        environment:
+            DATABASE_URL: ${INTERNAL_DATABASE_URL:-postgres://wiz:development-only@postgres:5432/internal}
+            REGISTRY_PUBLIC_URL: http://localhost:3002
+            SESSION_SECRET: ${INTERNAL_SESSION_SECRET:-replace-this-development-secret}
+            TOKEN_PEPPER: ${INTERNAL_TOKEN_PEPPER:-replace-this-development-pepper}
+            PASSWORD_PEPPER: ${INTERNAL_PASSWORD_PEPPER:-replace-this-password-pepper}
+        ports:
+            - "3002:3000"

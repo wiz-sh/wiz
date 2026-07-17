@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../packages/pm/schemas/manifest.schema.json",
+    "name": "@types/coreutils",
+    "version": "0.1.0",
+    "main": "index.d.wiz",
+    "description": "Typed GNU and BSD core utility declarations",
+    "license": "MIT",
+    "scripts": {},
+    "bin": {},
+    "dependencies": {}
+}

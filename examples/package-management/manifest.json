@@ -1,0 +1,7 @@
+{
+    "$schema": "https://raw.githubusercontent.com/hazelcaffe/wiz/main/packages/pm/schemas/manifest.schema.json",
+    "name": "example-package",
+    "scripts": {},
+    "bin": {},
+    "dependencies": {}
+}

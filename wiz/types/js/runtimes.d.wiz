@@ -1,0 +1,10 @@
+# JavaScript and TypeScript runtimes.
+
+declare env NODE_ENV?: string
+declare env NODE_OPTIONS?: string
+declare env BUN_INSTALL?: path
+declare env DENO_DIR?: directory
+
+declare command node(option?: "-c" | "-e" | "-i" | "-p" | "-r" | "--check" | "--eval" | "--import" | "--inspect" | "--print" | "--require" | "--test" | "--watch", value?: string, script?: file, ...arguments: string[]): status
+declare command bun(command?: "build" | "create" | "install" | "link" | "publish" | "remove" | "run" | "test" | "update" | "x", input?: string, option?: string, value?: string, ...arguments: string[]): status
+declare command deno(command: "bench" | "check" | "compile" | "doc" | "eval" | "fmt" | "info" | "install" | "lint" | "repl" | "run" | "task" | "test", option?: string, value?: string, ...arguments: string[]): status

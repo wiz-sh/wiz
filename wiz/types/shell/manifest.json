@@ -1,0 +1,11 @@
+{
+    "$schema": "../../../packages/pm/schemas/manifest.schema.json",
+    "name": "@types/shell",
+    "version": "0.1.0",
+    "main": "bash.d.wiz",
+    "description": "Typed declarations for Bash, Zsh, sh, Fish, PowerShell, and CMD",
+    "license": "MIT",
+    "scripts": {},
+    "bin": {},
+    "dependencies": {}
+}

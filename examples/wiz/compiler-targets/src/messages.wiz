@@ -1,0 +1,3 @@
+target_message(string name): string {
+    printf 'Target: %s\n' "$name"
+}

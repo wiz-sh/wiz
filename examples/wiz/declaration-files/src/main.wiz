@@ -1,0 +1,2 @@
+declare -T string host="$(hostname)"
+printf 'host=%s\n' "$host"

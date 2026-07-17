@@ -1,0 +1,8 @@
+# JavaScript build, type-check, format, and lint tools.
+
+declare command tsc(option?: "-b" | "-p" | "-w" | "--build" | "--init" | "--noEmit" | "--project" | "--showConfig" | "--watch", value?: path, ...files: file[]): status
+declare command tsx(option?: "-e" | "-i" | "--eval" | "--test" | "--tsconfig" | "--watch", value?: string, script?: file, ...arguments: string[]): status
+declare command biome(command: "check" | "ci" | "format" | "lint" | "migrate" | "rage" | "search" | "start" | "version", option?: "--changed" | "--fix" | "--staged" | "--write", ...paths: path[]): status
+declare command vite(command?: "build" | "dev" | "optimize" | "preview", root?: directory, option?: "--config" | "--host" | "--mode" | "--open" | "--port", value?: string): status
+declare command astro(command: "add" | "build" | "check" | "create" | "db" | "dev" | "docs" | "info" | "preview" | "sync" | "telemetry", option?: string, value?: string): status
+declare command next(command: "build" | "dev" | "info" | "lint" | "start" | "telemetry", directory?: directory, option?: "-H" | "-p" | "--hostname" | "--port" | "--turbo", value?: string): status

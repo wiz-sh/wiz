@@ -1,0 +1,13 @@
+{
+    "$schema": "../../packages/pm/schemas/manifest.schema.json",
+    "name": "@wiz/stdlib",
+    "version": "0.1.0",
+    "main": "index.wiz",
+    "description": "Project, binary-data, HTTP, and WebSocket modules for Wiz",
+    "license": "MIT",
+    "scripts": {
+        "check": "wiz check"
+    },
+    "bin": {},
+    "dependencies": {}
+}

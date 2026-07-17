@@ -1,0 +1,17 @@
+{
+    "$schema": "../../../packages/config/schemas/config.wiz.schema.json",
+    "compiler": {
+        "rootDir": ".",
+        "outDir": "./dist",
+        "runtimeChecks": "boundaries",
+        "sourceMap": true
+    },
+    "files": {
+        "include": [
+            "*.wiz"
+        ],
+        "exclude": [
+            "dist/**"
+        ]
+    }
+}

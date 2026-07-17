@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+source "./settings.wiz"
+
+print_retries(int value): void {
+    printf 'Retries: %s\n' "$value"
+}
+
+print_retries "$configured_retries"
