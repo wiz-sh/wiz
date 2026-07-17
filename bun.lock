@@ -1,0 +1,151 @@
+{
+  "lockfileVersion": 1,
+  "configVersion": 1,
+  "workspaces": {
+    "": {
+      "name": "@wiz/cli-workspace",
+      "devDependencies": {
+        "@biomejs/biome": "^2.2.0",
+        "@wiz/compiler": "file:../compiler/packages/compiler",
+        "@wiz/config": "file:../compiler/packages/config",
+        "@wiz/formatter": "file:../linter/packages/formatter",
+        "@wiz/language-service": "file:../lsp/packages/language-service",
+        "@wiz/linter": "file:../linter/packages/linter",
+        "@wiz/lsp": "file:../lsp/packages/lsp",
+        "@wiz/pm": "file:../package-manager/packages/pm",
+        "@wiz/registry-client": "file:../registry/packages/registry-client",
+        "@wiz/runtime": "file:../package-manager/packages/runtime",
+        "bun-types": "^1.2.19",
+        "typescript": "^5.9.2",
+      },
+    },
+    "apps/cli": {
+      "name": "@skylvi/wiz",
+      "version": "0.1.0",
+      "bin": {
+        "wiz": "./dist/cli.js",
+      },
+      "dependencies": {
+        "@wiz/compiler": "^0.1.0",
+        "@wiz/config": "^0.1.0",
+        "@wiz/formatter": "^0.1.0",
+        "@wiz/linter": "^0.1.0",
+        "@wiz/lsp": "^0.1.0",
+        "@wiz/pm": "^0.1.0",
+        "@wiz/registry-client": "^0.1.0",
+        "@wiz/runtime": "^0.1.0",
+        "chalk": "^5.6.2",
+      },
+    },
+  },
+  "overrides": {
+    "@wiz/compiler": "file:../compiler/packages/compiler",
+    "@wiz/config": "file:../compiler/packages/config",
+    "@wiz/formatter": "file:../linter/packages/formatter",
+    "@wiz/language-service": "file:../lsp/packages/language-service",
+    "@wiz/linter": "file:../linter/packages/linter",
+    "@wiz/lsp": "file:../lsp/packages/lsp",
+    "@wiz/pm": "file:../package-manager/packages/pm",
+    "@wiz/registry-client": "file:../registry/packages/registry-client",
+    "@wiz/runtime": "file:../package-manager/packages/runtime",
+  },
+  "packages": {
+    "@biomejs/biome": ["@biomejs/biome@2.5.4", "", { "optionalDependencies": { "@biomejs/cli-darwin-arm64": "2.5.4", "@biomejs/cli-darwin-x64": "2.5.4", "@biomejs/cli-linux-arm64": "2.5.4", "@biomejs/cli-linux-arm64-musl": "2.5.4", "@biomejs/cli-linux-x64": "2.5.4", "@biomejs/cli-linux-x64-musl": "2.5.4", "@biomejs/cli-win32-arm64": "2.5.4", "@biomejs/cli-win32-x64": "2.5.4" }, "bin": { "biome": "bin/biome" } }, "sha512-xy5FNE5kQJKyK5MR1gJy6ztXYx4WBAbYGlK04lMEgmyPRWKybY9NFwiG9yo0XdzOU8Xvhj41u034J1ywfoWfMw=="],
+
+    "@biomejs/cli-darwin-arm64": ["@biomejs/cli-darwin-arm64@2.5.4", "", { "os": "darwin", "cpu": "arm64" }, "sha512-4o3NFRobXHynkgcFVrlZsoDAFtF2ldlEGN8sORSws5ZQqyY4PXnPUIylu4ksfyHuwkfvDREuWh3JK+niRwGq3w=="],
+
+    "@biomejs/cli-darwin-x64": ["@biomejs/cli-darwin-x64@2.5.4", "", { "os": "darwin", "cpu": "x64" }, "sha512-D32P5HkU2Y6PySuC/WsVDTOgsDwVFmujzhhhOQjajtATpVWFDXuVd3oRbsWNSEA+aaFzyzZm22szsyydBYlSyQ=="],
+
+    "@biomejs/cli-linux-arm64": ["@biomejs/cli-linux-arm64@2.5.4", "", { "os": "linux", "cpu": "arm64" }, "sha512-pSEfW7B8kTsXUjUxC1xVVK+y85Ht3C5XxZ9gclmC7/3Ku9Vqz8jmI7k0p/BNIjQ6t4sFERI2sFeH73ybiZl6YQ=="],
+
+    "@biomejs/cli-linux-arm64-musl": ["@biomejs/cli-linux-arm64-musl@2.5.4", "", { "os": "linux", "cpu": "arm64" }, "sha512-Rpm5/AT1m+DlJmUoYvS4/vXc+0tXJPJ2NQz25TGPyHVF5JrWy75PE0GH6kVxsKtQDuCH4OgzquZq0R4kj/wCVg=="],
+
+    "@biomejs/cli-linux-x64": ["@biomejs/cli-linux-x64@2.5.4", "", { "os": "linux", "cpu": "x64" }, "sha512-FNxojWJkL7EajAuzBgoLe0T2G0y112M4lBrDIFl/DomFTx8yqenYOIdsRLNXvOvBBofE8hJi85LjzLmBDpY7/Q=="],
+
+    "@biomejs/cli-linux-x64-musl": ["@biomejs/cli-linux-x64-musl@2.5.4", "", { "os": "linux", "cpu": "x64" }, "sha512-aby/PohmmgbShcHqFsZVzG8H6D98+P+A6xRWRrQcLW1pCjabcov5UUlke4UqNQBYTkDQav+jB4zyyDDeKB2GaA=="],
+
+    "@biomejs/cli-win32-arm64": ["@biomejs/cli-win32-arm64@2.5.4", "", { "os": "win32", "cpu": "arm64" }, "sha512-emoXexPZIPAZkz2RKmA95WJUqK3I5MJNYtwEbL5ESciRzhmFMMyekDhNG8hpeOaK+ZGRDxAU4wvGuA5IHQ0h0w=="],
+
+    "@biomejs/cli-win32-x64": ["@biomejs/cli-win32-x64@2.5.4", "", { "os": "win32", "cpu": "x64" }, "sha512-U1jaluLw1qQc2Tx7/CeSoL9N5XcqIH+GWjpUAy1ouB5nVjSCMNO+NNHdY3RAs8zxNurLWAdj6pehQdCA2zyU+Q=="],
+
+    "@skylvi/wiz": ["@skylvi/wiz@workspace:apps/cli"],
+
+    "@types/node": ["@types/node@26.1.1", "", { "dependencies": { "undici-types": "~8.3.0" } }, "sha512-nxAkRSVkN1Y0JC1W8ky/fTfkGsMmcrRsbx+3XoZE+rMOX71kLYTV7fLXpqud1GpbpP5TuffXFqfX7fH2GgZREw=="],
+
+    "@wiz/compiler": ["@wiz/compiler@file:../compiler/packages/compiler", { "dependencies": { "@wiz/config": "^0.1.0" } }],
+
+    "@wiz/config": ["@wiz/config@file:../compiler/packages/config", {}],
+
+    "@wiz/formatter": ["@wiz/formatter@file:../linter/packages/formatter", { "dependencies": { "@wiz/compiler": "^0.1.0" } }],
+
+    "@wiz/language-service": ["@wiz/language-service@file:../lsp/packages/language-service", { "dependencies": { "@wiz/compiler": "^0.1.0", "@wiz/formatter": "^0.1.0", "@wiz/linter": "^0.1.0" } }],
+
+    "@wiz/linter": ["@wiz/linter@file:../linter/packages/linter", { "dependencies": { "@wiz/compiler": "^0.1.0" } }],
+
+    "@wiz/lsp": ["@wiz/lsp@file:../lsp/packages/lsp", { "dependencies": { "@wiz/config": "^0.1.0", "@wiz/language-service": "^0.1.0" }, "bin": { "wiz-lsp": "./dist/index.js" } }],
+
+    "@wiz/pm": ["@wiz/pm@file:../package-manager/packages/pm", { "dependencies": { "@wiz/registry-client": "^0.1.0" } }],
+
+    "@wiz/registry-client": ["@wiz/registry-client@file:../registry/packages/registry-client", {}],
+
+    "@wiz/runtime": ["@wiz/runtime@file:../package-manager/packages/runtime", { "dependencies": { "@wiz/pm": "^0.1.0" } }],
+
+    "bun-types": ["bun-types@1.3.14", "", { "dependencies": { "@types/node": "*" } }, "sha512-4N0ig0fEomHt5R0KCFWjovxow98rIoRwKolrYdCcknNwMekCXRnWEUvgu5soYV8QXtVsrUD8B95MBOZGPvr6KQ=="],
+
+    "chalk": ["chalk@5.6.2", "", {}, "sha512-7NzBL0rN6fMUW+f7A6Io4h40qQlG+xGmtMxfbnH/K7TAtt8JQWVQK+6g0UXKMeVJoyV5EkkNsErQ8pVD3bLHbA=="],
+
+    "typescript": ["typescript@5.9.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw=="],
+
+    "undici-types": ["undici-types@8.3.0", "", {}, "sha512-j375ScV60dom+YkPFIfTLcOiPxkN/buHz5GobjLhixFuANaNs3C9l4GmrWqejgXWJ7BbJcFYpTEUkS1Ge8bpZQ=="],
+
+    "@skylvi/wiz/@wiz/compiler": ["@wiz/compiler@file:../compiler/packages/compiler", { "dependencies": { "@wiz/config": "^0.1.0" } }],
+
+    "@skylvi/wiz/@wiz/config": ["@wiz/config@file:../compiler/packages/config", {}],
+
+    "@skylvi/wiz/@wiz/formatter": ["@wiz/formatter@file:../linter/packages/formatter", { "dependencies": { "@wiz/compiler": "^0.1.0" } }],
+
+    "@skylvi/wiz/@wiz/linter": ["@wiz/linter@file:../linter/packages/linter", { "dependencies": { "@wiz/compiler": "^0.1.0" } }],
+
+    "@skylvi/wiz/@wiz/lsp": ["@wiz/lsp@file:../lsp/packages/lsp", { "dependencies": { "@wiz/config": "^0.1.0", "@wiz/language-service": "^0.1.0" }, "bin": { "wiz-lsp": "./dist/index.js" } }],
+
+    "@skylvi/wiz/@wiz/pm": ["@wiz/pm@file:../package-manager/packages/pm", { "dependencies": { "@wiz/registry-client": "^0.1.0" } }],
+
+    "@skylvi/wiz/@wiz/registry-client": ["@wiz/registry-client@file:../registry/packages/registry-client", {}],
+
+    "@skylvi/wiz/@wiz/runtime": ["@wiz/runtime@file:../package-manager/packages/runtime", { "dependencies": { "@wiz/pm": "^0.1.0" } }],
+
+    "@wiz/compiler/@wiz/config": ["@wiz/config@file:../compiler/packages/config", {}],
+
+    "@wiz/formatter/@wiz/compiler": ["@wiz/compiler@file:../compiler/packages/compiler", {}],
+
+    "@wiz/language-service/@wiz/compiler": ["@wiz/compiler@file:../compiler/packages/compiler", {}],
+
+    "@wiz/language-service/@wiz/formatter": ["@wiz/formatter@file:../linter/packages/formatter", {}],
+
+    "@wiz/language-service/@wiz/linter": ["@wiz/linter@file:../linter/packages/linter", {}],
+
+    "@wiz/linter/@wiz/compiler": ["@wiz/compiler@file:../compiler/packages/compiler", {}],
+
+    "@wiz/lsp/@wiz/config": ["@wiz/config@file:../compiler/packages/config", {}],
+
+    "@wiz/lsp/@wiz/language-service": ["@wiz/language-service@file:../lsp/packages/language-service", {}],
+
+    "@wiz/pm/@wiz/registry-client": ["@wiz/registry-client@file:../registry/packages/registry-client", {}],
+
+    "@wiz/runtime/@wiz/pm": ["@wiz/pm@file:../package-manager/packages/pm", {}],
+
+    "@skylvi/wiz/@wiz/compiler/@wiz/config": ["@wiz/config@file:../compiler/packages/config", {}],
+
+    "@skylvi/wiz/@wiz/formatter/@wiz/compiler": ["@wiz/compiler@file:../compiler/packages/compiler", {}],
+
+    "@skylvi/wiz/@wiz/linter/@wiz/compiler": ["@wiz/compiler@file:../compiler/packages/compiler", {}],
+
+    "@skylvi/wiz/@wiz/lsp/@wiz/config": ["@wiz/config@file:../compiler/packages/config", {}],
+
+    "@skylvi/wiz/@wiz/lsp/@wiz/language-service": ["@wiz/language-service@file:../lsp/packages/language-service", {}],
+
+    "@skylvi/wiz/@wiz/pm/@wiz/registry-client": ["@wiz/registry-client@file:../registry/packages/registry-client", {}],
+
+    "@skylvi/wiz/@wiz/runtime/@wiz/pm": ["@wiz/pm@file:../package-manager/packages/pm", {}],
+  }
+}
