@@ -1,8 +1,8 @@
 import { afterEach, expect, spyOn, test } from "bun:test";
 import { cp, mkdir, readFile, realpath, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
+import { readManifest } from "../../../package-manager/packages/pm/src/project/manifest.ts";
 import { main } from "../../apps/cli/src/cli.ts";
-import { readManifest } from "../../packages/pm/src/project/manifest.ts";
 import { temporaryDirectory } from "../utils/filesystem.ts";
 import { manifest } from "../utils/fixtures.ts";
 

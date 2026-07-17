@@ -1,7 +1,0 @@
-# Legacy Nix tools remain common in scripts and CI images.
-
-declare command nix-build(expression?: file, option?: "-A" | "--arg" | "--argstr" | "--attr" | "--check" | "--dry-run" | "--impure" | "--no-out-link" | "-o" | "--out-link" | "--option" | "--show-trace", value?: string): status
-declare command nix-shell(expression?: file, option?: "--arg" | "--argstr" | "--command" | "--packages" | "-p" | "--pure" | "--run" | "--show-trace", value?: string, ...packages: string[]): status
-declare command nix-env(option: "--delete-generations" | "--install" | "-i" | "--install-attr" | "-iA" | "--list-generations" | "--query" | "-q" | "--rollback" | "--set" | "--switch-generation" | "--uninstall" | "-e" | "--upgrade" | "-u", value?: string, ...packages: string[]): status
-declare command nix-store(option: "--add" | "--add-fixed" | "--delete" | "--gc" | "--optimise" | "--query" | "-q" | "--realise" | "-r" | "--repair-path" | "--verify" | "--verify-path", path?: path, ...paths: path[]): status
-declare command nix-channel(option: "--add" | "--list" | "--remove" | "--rollback" | "--update", url?: string, name?: string): status

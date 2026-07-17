@@ -1,6 +1,0 @@
-# Aggregate imports are relative so subpath packages remain independently usable.
-source "./docker.d.wiz"
-source "./git.d.wiz"
-source "./systemd.d.wiz"
-source "./text.d.wiz"
-source "./search.d.wiz"

@@ -1,5 +1,0 @@
-# Redis-compatible command-line client.
-
-declare env REDISCLI_AUTH?: string
-
-declare command redis-cli(option?: "-a" | "-c" | "-d" | "-h" | "-n" | "-p" | "-r" | "-s" | "-u" | "-x" | "--csv" | "--json" | "--raw" | "--scan" | "--tls", value?: string, command?: string, ...arguments: string[]): stream

@@ -1,9 +1,0 @@
-# MySQL and MariaDB client tools.
-
-declare env MYSQL_HOST?: string
-declare env MYSQL_TCP_PORT?: int
-declare env MYSQL_UNIX_PORT?: path
-
-declare command mysql(option?: "-A" | "-B" | "-D" | "-e" | "-h" | "-N" | "-p" | "-P" | "-r" | "-s" | "-S" | "-t" | "-u" | "-v", value?: string, database?: string): status
-declare command mysqladmin(option?: "-h" | "-p" | "-P" | "-S" | "-u" | "-v" | "-w", value?: string, command: string, ...arguments: string[]): status
-declare command mysqldump(option?: "-A" | "-B" | "-d" | "-E" | "-h" | "-n" | "-p" | "-P" | "-R" | "-S" | "-t" | "-u" | "-v" | "--single-transaction", value?: string, database?: string, ...tables: string[]): status

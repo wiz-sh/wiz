@@ -1,3 +1,0 @@
-# SQLite command-line shell.
-
-declare command sqlite3(option?: "-batch" | "-bail" | "-column" | "-csv" | "-echo" | "-header" | "-html" | "-init" | "-json" | "-line" | "-list" | "-markdown" | "-noheader" | "-readonly" | "-separator" | "-table" | "-tabs", value?: string, database?: file, sql?: string): stream

@@ -1,6 +1,0 @@
-# General-purpose build systems and task runners.
-
-declare command ninja(target?: string, option?: "-C" | "-d" | "-f" | "-j" | "-k" | "-l" | "-n" | "-t" | "-v", value?: string, ...targets: string[]): status
-declare command meson(command: "compile" | "configure" | "devenv" | "dist" | "init" | "install" | "introspect" | "rewrite" | "setup" | "subprojects" | "test" | "wrap", directory?: directory, option?: "--backend" | "--buildtype" | "--cross-file" | "--native-file" | "--prefix" | "--reconfigure" | "--wipe", value?: string): status
-declare command bazel(command: "analyze-profile" | "aquery" | "build" | "canonicalize-flags" | "clean" | "coverage" | "cquery" | "dump" | "fetch" | "help" | "info" | "license" | "mobile-install" | "mod" | "print_action" | "query" | "run" | "shutdown" | "sync" | "test" | "vendor" | "version", target?: string, option?: "--config" | "--define" | "--jobs" | "--keep_going" | "--platforms" | "--remote_cache" | "--run_under" | "--test_filter" | "--test_output", value?: string, ...targets: string[]): status
-declare command just(recipe?: string, option?: "--choose" | "--dry-run" | "--dump" | "--evaluate" | "--fmt" | "--justfile" | "--list" | "--set" | "--shell" | "--show" | "--working-directory", value?: string, ...arguments: string[]): status

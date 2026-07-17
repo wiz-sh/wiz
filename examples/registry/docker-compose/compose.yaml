@@ -28,7 +28,7 @@ services:
     mailpit:
         image: axllent/mailpit:latest
     registry-api:
-        image: ${REGISTRY_IMAGE:-ghcr.io/hazelcaffe/wiz-registry:latest}
+        image: ${REGISTRY_IMAGE:-ghcr.io/wiz-sh/registry:latest}
         command: ["bun", "run", "--cwd", "apps/registry", "start"]
         environment: &registry-environment
             DATABASE_URL: postgres://wiz:${POSTGRES_PASSWORD:-development-only}@postgres:5432/wiz
@@ -53,7 +53,7 @@ services:
         ports:
             - "3000:3000"
     registry-worker:
-        image: ${REGISTRY_IMAGE:-ghcr.io/hazelcaffe/wiz-registry:latest}
+        image: ${REGISTRY_IMAGE:-ghcr.io/wiz-sh/registry:latest}
         command: ["bun", "run", "--cwd", "apps/registry", "worker"]
         environment: *registry-environment
         depends_on:

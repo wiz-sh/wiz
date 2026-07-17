@@ -1,5 +1,0 @@
-# Major public-cloud command groups.
-
-declare command aws(service: string, operation?: string, option?: "--ca-bundle" | "--cli-connect-timeout" | "--cli-read-timeout" | "--debug" | "--endpoint-url" | "--no-cli-pager" | "--no-sign-request" | "--output" | "--profile" | "--query" | "--region", value?: string, ...parameters: string[]): status
-declare command gcloud(group: string, command?: string, resource?: string, option?: "--account" | "--configuration" | "--filter" | "--format" | "--project" | "--quiet" | "--region" | "--verbosity" | "--zone", value?: string, ...parameters: string[]): status
-declare command az(group: string, command?: string, option?: "--debug" | "--name" | "--output" | "--query" | "--resource-group" | "--subscription" | "--verbose" | "--yes", value?: string, ...parameters: string[]): status

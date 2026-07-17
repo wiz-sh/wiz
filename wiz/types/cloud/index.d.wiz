@@ -1,5 +1,0 @@
-source "./providers.d.wiz"
-source "./kubernetes.d.wiz"
-source "./infrastructure.d.wiz"
-source "./platforms.d.wiz"
-source "./containers.d.wiz"

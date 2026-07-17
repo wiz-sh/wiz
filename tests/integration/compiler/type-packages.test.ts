@@ -10,7 +10,7 @@ import { Glob } from "bun";
 
 const repositoryRoot = resolve(import.meta.dir, "../../..");
 
-const typesRoot = join(repositoryRoot, "wiz/types");
+const typesRoot = join(repositoryRoot, "../types/wiz/types");
 
 test("official type packages have valid manifests and declaration syntax", async () => {
     const manifests = new Glob("*/manifest.json");

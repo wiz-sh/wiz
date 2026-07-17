@@ -1,8 +1,0 @@
-# JavaScript package clients.
-
-declare command npm(command?: "access" | "audit" | "ci" | "config" | "dedupe" | "deprecate" | "diff" | "dist-tag" | "exec" | "help" | "init" | "install" | "link" | "login" | "logout" | "outdated" | "owner" | "pack" | "ping" | "pkg" | "prefix" | "profile" | "prune" | "publish" | "query" | "rebuild" | "repo" | "restart" | "root" | "run" | "search" | "start" | "stop" | "test" | "token" | "uninstall" | "update" | "version" | "view" | "whoami", package?: string, option?: string, value?: string, ...arguments: string[]): status
-declare command npx(package: string, ...arguments: string[]): status
-declare command pnpm(command?: "add" | "audit" | "build" | "config" | "create" | "deploy" | "dlx" | "exec" | "fetch" | "import" | "init" | "install" | "link" | "list" | "outdated" | "pack" | "patch" | "prune" | "publish" | "rebuild" | "remove" | "run" | "start" | "store" | "test" | "unlink" | "update" | "view" | "why", package?: string, option?: string, value?: string, ...arguments: string[]): status
-declare command pnpx(package: string, ...arguments: string[]): status
-declare command yarn(command?: "add" | "bin" | "cache" | "config" | "create" | "dlx" | "exec" | "info" | "init" | "install" | "link" | "npm" | "pack" | "plugin" | "rebuild" | "remove" | "run" | "set" | "stage" | "unlink" | "up" | "why" | "workspace" | "workspaces", package?: string, ...arguments: string[]): status
-declare command corepack(command: "cache" | "disable" | "enable" | "install" | "pack" | "prepare" | "up" | "use", packageManager?: string, ...arguments: string[]): status

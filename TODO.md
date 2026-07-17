@@ -1,5 +1,0 @@
-- [ ] Registry web client
-- [ ] Wiz playground
-- [ ] REPL
-- [ ] Wiz as a shell? (`#!/usr/bin/env wiz`)
-- [ ] Extract focused repositories after the first compatible package release

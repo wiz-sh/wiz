@@ -1,7 +1,7 @@
 import type {
     DependencySpec,
     PackageMetadata,
-} from "../../packages/pm/src/types.ts";
+} from "../../../package-manager/packages/pm/src/types.ts";
 
 interface ManifestOptions {
     package?: Omit<PackageMetadata, "name">;

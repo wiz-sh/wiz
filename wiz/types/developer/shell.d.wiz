@@ -1,7 +1,0 @@
-# Shell analysis, formatting, watching, and editors.
-
-declare command shellcheck(file: file, option?: "--check-sourced" | "--color" | "--enable" | "--exclude" | "--external-sources" | "--format" | "--include" | "--severity" | "--shell" | "--source-path", value?: string, ...files: file[]): status
-declare command shfmt(path?: path, option?: "--case-indent" | "--diff" | "--filename" | "--find" | "--indent" | "--language-dialect" | "--list" | "--minify" | "--simplify" | "--space-redirects" | "--write", value?: string, ...paths: path[]): status
-declare command code(path?: path, option?: "--add" | "--diff" | "--disable-extensions" | "--extensions-dir" | "--goto" | "--install-extension" | "--list-extensions" | "--new-window" | "--profile" | "--reuse-window" | "--uninstall-extension" | "--user-data-dir" | "--wait", value?: string, ...paths: path[]): status
-declare command watchexec(command: string, option?: "--clear" | "--debounce" | "--emit-events-to" | "--exts" | "--filter" | "--ignore" | "--no-vcs-ignore" | "--on-busy-update" | "--postpone" | "--restart" | "--shell" | "--watch" | "--workdir", value?: string, ...arguments: string[]): status
-declare command parallel(command: string, option?: "--bar" | "--colsep" | "--delay" | "--dry-run" | "--eta" | "--halt" | "--jobs" | "--keep-order" | "--line-buffer" | "--progress" | "--results" | "--timeout", value?: string, ...arguments: string[]): status

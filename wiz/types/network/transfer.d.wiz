@@ -1,7 +1,0 @@
-# HTTP and file-transfer clients.
-
-declare command curl(option?: "-d" | "-F" | "-H" | "-I" | "-L" | "-o" | "-O" | "-s" | "-S" | "-u" | "-X" | "--compressed" | "--connect-timeout" | "--fail" | "--fail-with-body" | "--head" | "--location" | "--max-time" | "--output" | "--request" | "--retry" | "--silent" | "--user-agent", value?: string, url?: string, ...urls: string[]): stream
-declare command wget(option?: "-O" | "-P" | "-q" | "-r" | "-S" | "--continue" | "--header" | "--mirror" | "--no-clobber" | "--output-document" | "--quiet" | "--recursive" | "--timeout" | "--tries" | "--user-agent", value?: string, url: string, ...urls: string[]): status
-declare command aria2c(option?: "-c" | "-d" | "-j" | "-o" | "-s" | "-x" | "--checksum" | "--continue" | "--dir" | "--header" | "--max-connection-per-server" | "--out" | "--split", value?: string, ...urls: string[]): status
-declare command http(method?: "DELETE" | "GET" | "HEAD" | "OPTIONS" | "PATCH" | "POST" | "PUT", url?: string, ...items: string[]): stream
-declare command https(method?: "DELETE" | "GET" | "HEAD" | "OPTIONS" | "PATCH" | "POST" | "PUT", url?: string, ...items: string[]): stream

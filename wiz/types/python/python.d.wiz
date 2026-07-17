@@ -1,6 +1,0 @@
-# Python interpreter and module runner.
-
-declare command python(option?: "-B" | "-b" | "-bb" | "-E" | "-h" | "--help" | "-i" | "-I" | "-O" | "-OO" | "-P" | "-q" | "-s" | "-S" | "-u" | "-v" | "-V" | "--version" | "-W" | "-X" | "-c" | "-m", value?: string, script?: file, ...arguments: string[]): status
-declare command python3(option?: "-B" | "-b" | "-bb" | "-E" | "-h" | "--help" | "-i" | "-I" | "-O" | "-OO" | "-P" | "-q" | "-s" | "-S" | "-u" | "-v" | "-V" | "--version" | "-W" | "-X" | "-c" | "-m", value?: string, script?: file, ...arguments: string[]): status
-declare command pydoc(topic?: string): stream
-declare command pydoc3(topic?: string): stream

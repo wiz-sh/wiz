@@ -1,4 +1,0 @@
-source "./checksums.d.wiz"
-source "./gpg.d.wiz"
-source "./keys.d.wiz"
-source "./openssl.d.wiz"

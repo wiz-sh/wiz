@@ -119,7 +119,10 @@ test("arrow functions use multiline block bodies", async () => {
 });
 
 test("package-manager source folders contain multiple modules", async () => {
-    const sourceRoot = resolve(repositoryRoot, "packages/pm/src");
+    const sourceRoot = resolve(
+        repositoryRoot,
+        "../package-manager/packages/pm/src",
+    );
 
     const entries = await readdir(sourceRoot, {
         withFileTypes: true,
@@ -144,7 +147,7 @@ test("package-manager source folders contain multiple modules", async () => {
 
         expect(
             moduleCount,
-            `packages/pm/src/${entry.name} contains only ${moduleCount} modules`,
+            `package-manager/packages/pm/src/${entry.name} contains only ${moduleCount} modules`,
         ).toBeGreaterThanOrEqual(2);
     }
 });

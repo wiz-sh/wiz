@@ -1,5 +1,5 @@
 {
-    "$schema": "https://raw.githubusercontent.com/hazelcaffe/wiz/main/packages/pm/schemas/manifest.schema.json",
+    "$schema": "https://raw.githubusercontent.com/wiz-sh/package-manager/main/packages/pm/schemas/manifest.schema.json",
     "name": "mixed-source-application",
     "version": "1.0.0",
     "main": "src/main.sh",

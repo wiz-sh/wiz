@@ -1,4 +1,0 @@
-source "./accounts.d.wiz"
-source "./desktop.d.wiz"
-source "./processes.d.wiz"
-source "./services.d.wiz"
