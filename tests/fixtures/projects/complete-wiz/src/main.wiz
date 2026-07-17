@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+source "./helpers.wiz"
+
+declare -T int port=8080
+greet "Wiz" "$port"

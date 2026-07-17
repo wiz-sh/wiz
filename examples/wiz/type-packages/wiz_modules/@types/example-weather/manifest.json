@@ -1,0 +1,10 @@
+{
+    "name": "@types/example-weather",
+    "version": "0.1.0",
+    "main": "index.d.wiz",
+    "description": "Example declaration-only package",
+    "license": "MIT",
+    "scripts": {},
+    "bin": {},
+    "dependencies": {}
+}

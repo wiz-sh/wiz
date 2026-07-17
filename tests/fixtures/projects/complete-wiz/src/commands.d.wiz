@@ -1,0 +1,5 @@
+declare command printf {
+    print(format: string): status
+}
+
+declare env HOME: path

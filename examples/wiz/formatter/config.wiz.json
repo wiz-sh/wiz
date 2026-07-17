@@ -1,0 +1,15 @@
+{
+    "compiler": {
+        "rootDir": ".",
+        "outDir": "./dist"
+    },
+    "formatter": {
+        "indentWidth": 4
+    },
+    "files": {
+        "include": [
+            "*.wiz",
+            "*.d.wiz"
+        ]
+    }
+}

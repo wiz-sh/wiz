@@ -1,0 +1,5 @@
+source "./helpers.wiz"
+
+declare -T string project="complete"
+declare -T string label="$(banner "$project")"
+printf '%s\n' "$label"

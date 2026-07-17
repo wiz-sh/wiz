@@ -1,0 +1,4 @@
+if true; then
+    declare -T string message="formatted"
+    printf '%s\n' "$message"
+fi

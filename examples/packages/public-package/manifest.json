@@ -1,0 +1,15 @@
+{
+    "$schema": "https://raw.githubusercontent.com/wiz-sh/package-manager/main/packages/pm/schemas/manifest.schema.json",
+    "name": "@example/hello",
+    "version": "1.0.0",
+    "main": "src/hello.sh",
+    "description": "A public Wiz registry package",
+    "license": "MIT",
+    "scripts": {
+        "check": "bash -n src/hello.sh"
+    },
+    "bin": {
+        "hello": "src/hello.sh"
+    },
+    "dependencies": {}
+}

@@ -4,7 +4,11 @@ Read `WIZ.md` for the product model before changing public behavior.
 
 ## Ownership
 
-This repository owns the `wiz` command-line application. Keep it thin: package operations belong in `@wiz/pm`, execution in `@wiz/runtime`, compilation in `@wiz/compiler`, and editor protocol behavior in `@wiz/lsp`.
+This repository owns the `wiz` command-line application and the cross-product
+integration suite under `tests/`. Keep the application thin: package operations
+belong in `@wiz/pm`, execution in `@wiz/runtime`, compilation in
+`@wiz/compiler`, and editor protocol behavior in `@wiz/lsp`. The aggregate
+examples live here because they exercise the public CLI across those packages.
 
 ## Engineering rules
 
@@ -30,4 +34,6 @@ bun test
 bun run build
 ```
 
-Cross-product CLI and end-to-end workflows live in the `wiz-sh/wiz` integration repository. Component tests in this repository must remain independently runnable.
+Cross-product tests may use the sibling repository layout documented by the
+local file overrides in `package.json`. Unit tests must remain independently
+runnable after the dependencies are published.

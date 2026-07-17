@@ -1,0 +1,12 @@
+{
+    "$schema": "https://raw.githubusercontent.com/wiz-sh/package-manager/main/packages/pm/schemas/manifest.schema.json",
+    "name": "logger",
+    "main": "src/logger.sh",
+    "scripts": {
+        "check": "bash -n src/logger.sh src/prefix.sh"
+    },
+    "bin": {
+        "logger": "src/logger.sh"
+    },
+    "dependencies": {}
+}

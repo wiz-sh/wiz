@@ -1,0 +1,2 @@
+declare -T string message="linted safely"
+printf '%s\n' "$message"

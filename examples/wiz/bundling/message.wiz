@@ -1,0 +1,4 @@
+## Prints the greeting used by the bundled entry point.
+print_message(string name): status {
+    printf 'Hello, %s!\n' "$name"
+}

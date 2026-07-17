@@ -1,0 +1,28 @@
+{
+    "$schema": "https://raw.githubusercontent.com/wiz-sh/package-manager/main/packages/pm/schemas/manifest.schema.json",
+    "name": "mixed-source-application",
+    "version": "1.0.0",
+    "main": "src/main.sh",
+    "description": "Registry and Git dependencies in one project",
+    "license": "MIT",
+    "scripts": {
+        "check": "bash -n src/main.sh"
+    },
+    "bin": {},
+    "dependencies": {
+        "@internal/runtime": {
+            "registry": "internal",
+            "version": "^1.0.0"
+        },
+        "git-helper": {
+            "git": "https://code.example.com/example/git-helper.git",
+            "rev": "4f92820abc4f92820abc4f92820abc4f92820abc"
+        }
+    },
+    "registries": {
+        "default": "official",
+        "scopes": {
+            "@internal": "internal"
+        }
+    }
+}

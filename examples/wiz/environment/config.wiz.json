@@ -1,0 +1,13 @@
+{
+    "compiler": {
+        "rootDir": ".",
+        "outDir": "./dist",
+        "runtimeChecks": "boundaries"
+    },
+    "files": {
+        "include": [
+            "*.wiz",
+            "*.d.wiz"
+        ]
+    }
+}

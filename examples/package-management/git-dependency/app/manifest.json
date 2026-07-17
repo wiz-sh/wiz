@@ -1,0 +1,7 @@
+{
+    "$schema": "https://raw.githubusercontent.com/wiz-sh/package-manager/main/packages/pm/schemas/manifest.schema.json",
+    "name": "git-consumer",
+    "scripts": {},
+    "bin": {},
+    "dependencies": {}
+}

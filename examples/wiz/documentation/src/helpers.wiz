@@ -1,0 +1,8 @@
+## Prints a greeting for a person or project.
+##
+## @param name Name displayed in the greeting.
+## @returns Text is written to stdout; no value is captured.
+## @example greet "Wiz"
+greet(string name): void {
+    printf 'Hello, documented %s!\n' "$name"
+}

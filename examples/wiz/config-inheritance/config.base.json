@@ -1,0 +1,22 @@
+{
+    "typeChecking": {
+        "strict": true,
+        "allowAny": false,
+        "implicitAny": false,
+        "unknownCommands": "warning"
+    },
+    "formatter": {
+        "indentStyle": "space",
+        "indentWidth": 4,
+        "lineWidth": 100,
+        "quoteStyle": "preserve",
+        "trailingNewline": true
+    },
+    "linter": {
+        "enabled": true,
+        "recommended": true,
+        "rules": {
+            "style/prefer-typed-parameters": "error"
+        }
+    }
+}

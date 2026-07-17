@@ -1,0 +1,12 @@
+{
+    "$schema": "https://raw.githubusercontent.com/wiz-sh/package-manager/main/packages/pm/schemas/manifest.schema.json",
+    "name": "demo",
+    "main": "index.sh",
+    "scripts": {},
+    "bin": {},
+    "dependencies": {
+        "shared": {
+            "workspace": "*"
+        }
+    }
+}

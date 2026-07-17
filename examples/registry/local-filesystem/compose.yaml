@@ -1,0 +1,24 @@
+services:
+    postgres:
+        image: postgres:17-alpine
+        environment:
+            POSTGRES_DB: wiz
+            POSTGRES_USER: wiz
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-development-only}
+    registry:
+        image: ${REGISTRY_IMAGE:-ghcr.io/hazelcaffe/wiz-registry:latest}
+        environment:
+            DATABASE_URL: postgres://wiz:${POSTGRES_PASSWORD:-development-only}@postgres:5432/wiz
+            REGISTRY_PUBLIC_URL: http://localhost:3000
+            SESSION_SECRET: ${SESSION_SECRET:-replace-this-development-secret}
+            TOKEN_PEPPER: ${TOKEN_PEPPER:-replace-this-development-pepper}
+            PASSWORD_PEPPER: ${PASSWORD_PEPPER:-replace-this-password-pepper}
+            STORAGE_DRIVER: filesystem
+            STORAGE_PATH: /data/archives
+        volumes:
+            - archives:/data/archives
+        ports:
+            - "3000:3000"
+
+volumes:
+    archives:

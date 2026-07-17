@@ -1,0 +1,5 @@
+announce(string service, int attempts=1): void {
+    printf 'Starting %s (attempts=%s)\n' "$service" "$attempts"
+}
+
+announce "caddy"

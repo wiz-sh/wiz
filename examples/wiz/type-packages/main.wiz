@@ -1,0 +1,3 @@
+source -T "@types/example-weather"
+
+weather current "New York"

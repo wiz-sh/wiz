@@ -1,0 +1,16 @@
+{
+    "compiler": {
+        "target": "bash",
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "sourceMap": true,
+        "noEmitOnError": true,
+        "runtimeChecks": "none"
+    },
+    "typeChecking": {
+        "strict": true,
+        "allowAny": false,
+        "implicitAny": false,
+        "unknownCommands": "warning"
+    }
+}

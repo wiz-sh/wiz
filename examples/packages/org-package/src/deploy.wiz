@@ -1,0 +1,7 @@
+#!/usr/bin/env wiz
+
+deploy(string environment="staging"): status {
+    printf 'Deploying to %s\n' "$environment"
+}
+
+deploy "${1:-staging}"

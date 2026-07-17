@@ -1,0 +1,28 @@
+{
+    "compiler": {
+        "target": "bash",
+        "rootDir": ".",
+        "outDir": "./dist",
+        "sourceMap": true,
+        "runtimeChecks": "boundaries",
+        "bundle": true,
+        "minify": true
+    },
+    "typeChecking": {
+        "strict": true,
+        "allowAny": false,
+        "implicitAny": false,
+        "unknownCommands": "warning"
+    },
+    "files": {
+        "include": [
+            "*.wiz",
+            "*.d.wiz"
+        ],
+        "exclude": [
+            "dist/**",
+            "node_modules/**",
+            "wiz_modules/**"
+        ]
+    }
+}

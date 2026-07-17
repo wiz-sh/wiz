@@ -1,0 +1,5 @@
+greet(string name): void {
+    printf 'Hello, %s!\n' "$name"
+}
+
+export -f greet

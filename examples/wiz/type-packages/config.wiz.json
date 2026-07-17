@@ -1,0 +1,18 @@
+{
+    "$schema": "https://raw.githubusercontent.com/wiz-sh/compiler/main/packages/config/schemas/config.wiz.schema.json",
+    "compiler": {
+        "rootDir": ".",
+        "outDir": "./dist",
+        "sourceMap": true
+    },
+    "files": {
+        "include": [
+            "*.wiz",
+            "*.d.wiz"
+        ],
+        "exclude": [
+            "dist/**",
+            "wiz_modules/**"
+        ]
+    }
+}

@@ -49,7 +49,9 @@
     },
     "include": [
         "apps/**/*.ts",
-        "apps/**/*.ts"
+        "examples/**/*.ts",
+        "tests/**/*.ts",
+        "tools/**/*.ts"
     ],
     "exclude": [
         "**/dist",

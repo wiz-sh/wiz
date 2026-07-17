@@ -3,21 +3,24 @@
     "private": true,
     "license": "MIT",
     "workspaces": [
-        "apps/*",
         "apps/*"
     ],
     "scripts": {
         "build": "bun run --cwd apps/cli build",
+        "example": "bun run --cwd examples example",
         "lint": "biome lint .",
         "lint:fix": "biome lint --write .",
-        "format": "biome format --write .",
-        "format:check": "biome format .",
+        "format": "biome format --write . && bun tools/json-format.ts",
+        "format:check": "biome format . && bun tools/json-format.ts --check",
+        "format:json": "bun tools/json-format.ts",
+        "format:json:check": "bun tools/json-format.ts --check",
         "typecheck": "tsc --noEmit",
         "test": "bun test",
+        "test:integration": "bun test tests/integration tests/wiz",
         "test:coverage": "bun test --coverage",
-        "cloc": "bun x --package cloc cloc apps/cli/src --include-ext=ts,json",
-        "check": "biome check . && bun run typecheck && bun test",
-        "check:fix": "biome check --write ."
+        "cloc": "bun x --package cloc cloc apps/cli/src examples tests --include-ext=ts,json,wiz,sh,zsh --force-lang='Bourne Again Shell',wiz --force-lang='Bourne Again Shell',zsh",
+        "check": "biome check . && bun tools/json-format.ts --check && bun run typecheck && bun test",
+        "check:fix": "biome check --write . && bun tools/json-format.ts"
     },
     "devDependencies": {
         "@biomejs/biome": "^2.2.0",

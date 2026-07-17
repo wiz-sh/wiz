@@ -1,0 +1,3 @@
+banner(string name): string {
+    printf 'Wiz project: %s' "$name"
+}

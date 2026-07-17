@@ -1,0 +1,22 @@
+{
+    "compiler": {
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "sourceMap": true,
+        "runtimeChecks": "boundaries"
+    },
+    "typeChecking": {
+        "strict": true,
+        "allowAny": false,
+        "implicitAny": false
+    },
+    "files": {
+        "include": [
+            "src/**/*.wiz",
+            "src/**/*.d.wiz"
+        ],
+        "exclude": [
+            "dist/**"
+        ]
+    }
+}

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+source "./helpers.wiz"
+
+greet "Wiz"

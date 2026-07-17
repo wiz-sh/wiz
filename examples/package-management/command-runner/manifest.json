@@ -1,0 +1,15 @@
+{
+    "$schema": "https://raw.githubusercontent.com/wiz-sh/package-manager/main/packages/pm/schemas/manifest.schema.json",
+    "name": "command-runner-example",
+    "main": "src/hello.sh",
+    "scripts": {
+        "check": "bash -n src/hello.sh src/project-root.sh",
+        "greet": "bash src/hello.sh \"$@\"",
+        "root": "bash src/project-root.sh"
+    },
+    "bin": {
+        "hello": "src/hello.sh",
+        "project-root": "src/project-root.sh"
+    },
+    "dependencies": {}
+}
