@@ -42,21 +42,6 @@ wiz needs curl
 
 ## Development
 
-Clone the component repositories as siblings so the local `file:` overrides resolve:
-
-```text
-wiz/
-├── wiz/
-├── compiler/
-├── linter/
-├── lsp/
-├── package-manager/
-├── registry/
-└── types/
-```
-
-Then run:
-
 ```console
 bun install
 bun run check
@@ -64,7 +49,7 @@ bun run build
 bun run example -- list
 ```
 
-The integration suite under `tests/` exercises the assembled CLI against the sibling components. Examples are selectable through `bun run example` and are intended to remain executable documentation.
+The integration suite under `tests/` exercises the assembled CLI against the published component packages. Examples are selectable through `bun run example` and are intended to remain executable documentation.
 
 ## Related repositories
 

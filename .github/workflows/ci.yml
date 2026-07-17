@@ -25,37 +25,13 @@ jobs:
         steps:
             - uses: actions/checkout@v7
               with:
-                  path: suite/cli
-            - uses: actions/checkout@v7
-              with:
-                  repository: wiz-sh/compiler
-                  path: suite/compiler
-            - uses: actions/checkout@v7
-              with:
-                  repository: wiz-sh/types
-                  path: suite/types
-            - uses: actions/checkout@v7
-              with:
-                  repository: wiz-sh/linter
-                  path: suite/linter
-            - uses: actions/checkout@v7
-              with:
-                  repository: wiz-sh/registry
-                  path: suite/registry
-            - uses: actions/checkout@v7
-              with:
-                  repository: wiz-sh/package-manager
-                  path: suite/package-manager
-            - uses: actions/checkout@v7
-              with:
-                  repository: wiz-sh/lsp
-                  path: suite/lsp
+                  path: suite/wiz
             - uses: oven-sh/setup-bun@v2
               with:
                   bun-version: ${{ env.BUN_VERSION }}
             - run: bun install --frozen-lockfile
-              working-directory: suite/cli
+              working-directory: suite/wiz
             - run: bun run check
-              working-directory: suite/cli
+              working-directory: suite/wiz
             - run: bun run build
-              working-directory: suite/cli
+              working-directory: suite/wiz

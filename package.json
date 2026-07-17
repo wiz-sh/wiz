@@ -24,28 +24,17 @@
     },
     "devDependencies": {
         "@biomejs/biome": "^2.2.0",
-        "@wiz-sh/compiler": "file:../compiler/packages/compiler",
-        "@wiz-sh/config": "file:../compiler/packages/config",
-        "@wiz-sh/formatter": "file:../linter/packages/formatter",
-        "@wiz-sh/language-service": "file:../lsp/packages/language-service",
-        "@wiz-sh/linter": "file:../linter/packages/linter",
-        "@wiz-sh/lsp": "file:../lsp/packages/lsp",
-        "@wiz-sh/pm": "file:../package-manager/packages/pm",
-        "@wiz-sh/registry-client": "file:../registry/packages/registry-client",
-        "@wiz-sh/runtime": "file:../package-manager/packages/runtime",
+        "@wiz-sh/compiler": "^0.1.0",
+        "@wiz-sh/config": "^0.1.0",
+        "@wiz-sh/formatter": "^0.1.0",
+        "@wiz-sh/language-service": "^0.1.0",
+        "@wiz-sh/linter": "^0.1.0",
+        "@wiz-sh/lsp": "^0.1.0",
+        "@wiz-sh/pm": "^0.1.0",
+        "@wiz-sh/registry-client": "^0.1.0",
+        "@wiz-sh/runtime": "^0.1.0",
         "bun-types": "^1.2.19",
         "typescript": "^5.9.2"
-    },
-    "overrides": {
-        "@wiz-sh/compiler": "file:../compiler/packages/compiler",
-        "@wiz-sh/config": "file:../compiler/packages/config",
-        "@wiz-sh/formatter": "file:../linter/packages/formatter",
-        "@wiz-sh/language-service": "file:../lsp/packages/language-service",
-        "@wiz-sh/linter": "file:../linter/packages/linter",
-        "@wiz-sh/lsp": "file:../lsp/packages/lsp",
-        "@wiz-sh/pm": "file:../package-manager/packages/pm",
-        "@wiz-sh/registry-client": "file:../registry/packages/registry-client",
-        "@wiz-sh/runtime": "file:../package-manager/packages/runtime"
     },
     "packageManager": "bun@1.3.14"
 }
