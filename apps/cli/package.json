@@ -13,12 +13,12 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/hazelcaffe/wiz.git",
+        "url": "git+https://github.com/wiz-sh/wiz.git",
         "directory": "apps/cli"
     },
-    "homepage": "https://github.com/hazelcaffe/wiz#readme",
+    "homepage": "https://github.com/wiz-sh/wiz#readme",
     "bugs": {
-        "url": "https://github.com/hazelcaffe/wiz/issues"
+        "url": "https://github.com/wiz-sh/wiz/issues"
     },
     "type": "module",
     "types": "./dist/index.d.ts",

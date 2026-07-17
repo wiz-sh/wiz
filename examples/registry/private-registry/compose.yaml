@@ -1,6 +1,6 @@
 services:
     registry:
-        image: ${REGISTRY_IMAGE:-ghcr.io/hazelcaffe/wiz-registry:latest}
+        image: ${REGISTRY_IMAGE:-ghcr.io/wiz-sh/registry:latest}
         environment:
             DATABASE_URL: ${DATABASE_URL:-postgres://wiz:development-only@postgres:5432/wiz}
             REGISTRY_PUBLIC_URL: https://packages.example.com

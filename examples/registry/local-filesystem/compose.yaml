@@ -6,7 +6,7 @@ services:
             POSTGRES_USER: wiz
             POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-development-only}
     registry:
-        image: ${REGISTRY_IMAGE:-ghcr.io/hazelcaffe/wiz-registry:latest}
+        image: ${REGISTRY_IMAGE:-ghcr.io/wiz-sh/registry:latest}
         environment:
             DATABASE_URL: postgres://wiz:${POSTGRES_PASSWORD:-development-only}@postgres:5432/wiz
             REGISTRY_PUBLIC_URL: http://localhost:3000

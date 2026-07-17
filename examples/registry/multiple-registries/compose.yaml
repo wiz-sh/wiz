@@ -1,6 +1,6 @@
 services:
     official:
-        image: ${REGISTRY_IMAGE:-ghcr.io/hazelcaffe/wiz-registry:latest}
+        image: ${REGISTRY_IMAGE:-ghcr.io/wiz-sh/registry:latest}
         environment:
             DATABASE_URL: ${OFFICIAL_DATABASE_URL:-postgres://wiz:development-only@postgres:5432/official}
             REGISTRY_PUBLIC_URL: http://localhost:3001
@@ -10,7 +10,7 @@ services:
         ports:
             - "3001:3000"
     internal:
-        image: ${REGISTRY_IMAGE:-ghcr.io/hazelcaffe/wiz-registry:latest}
+        image: ${REGISTRY_IMAGE:-ghcr.io/wiz-sh/registry:latest}
         environment:
             DATABASE_URL: ${INTERNAL_DATABASE_URL:-postgres://wiz:development-only@postgres:5432/internal}
             REGISTRY_PUBLIC_URL: http://localhost:3002

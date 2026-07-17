@@ -1,5 +1,7 @@
 # Wiz
 
+This repository contains the `wiz` CLI, aggregate runnable examples, and the cross-product integration suite.
+
 Wiz is a typed shell language with an integrated package manager and command
 runner. It keeps familiar shell syntax and targets Bash, Zsh, `sh`, Fish,
 PowerShell, and CMD.
@@ -89,7 +91,7 @@ Schema for editor completion:
 
 ```json
 {
-    "$schema": "https://raw.githubusercontent.com/hazelcaffe/wiz/main/packages/pm/schemas/manifest.schema.json",
+    "$schema": "https://raw.githubusercontent.com/wiz-sh/package-manager/main/packages/pm/schemas/manifest.schema.json",
     "name": "my-package",
     "version": "1.0.0",
     "main": "src/index.sh",
@@ -122,7 +124,7 @@ The root manifest owns workspace patterns:
 
 ```json
 {
-    "$schema": "https://raw.githubusercontent.com/hazelcaffe/wiz/main/packages/pm/schemas/manifest.schema.json",
+    "$schema": "https://raw.githubusercontent.com/wiz-sh/package-manager/main/packages/pm/schemas/manifest.schema.json",
     "name": "my-suite",
     "private": true,
     "workspaces": ["packages/*", "apps/*"],

@@ -6,7 +6,7 @@ services:
             MINIO_ROOT_USER: ${MINIO_ROOT_USER:-development}
             MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-development-only}
     registry:
-        image: ${REGISTRY_IMAGE:-ghcr.io/hazelcaffe/wiz-registry:latest}
+        image: ${REGISTRY_IMAGE:-ghcr.io/wiz-sh/registry:latest}
         environment:
             DATABASE_URL: ${DATABASE_URL:-postgres://wiz:development-only@postgres:5432/wiz}
             REGISTRY_PUBLIC_URL: http://localhost:3000
