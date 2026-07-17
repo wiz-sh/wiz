@@ -1,5 +1,6 @@
 import { expect, test } from "bun:test";
 import { dirname, join, relative, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import {
     bindSourceFile,
     checkSourceFile,
@@ -10,7 +11,11 @@ import { Glob } from "bun";
 
 const repositoryRoot = resolve(import.meta.dir, "../../..");
 
-const typesRoot = join(repositoryRoot, "../types/wiz/types");
+const commonManifest = fileURLToPath(
+    import.meta.resolve("@wiz-sh/types/common/manifest.json"),
+);
+
+const typesRoot = dirname(dirname(commonManifest));
 
 test("official type packages have valid manifests and declaration syntax", async () => {
     const manifests = new Glob("*/manifest.json");

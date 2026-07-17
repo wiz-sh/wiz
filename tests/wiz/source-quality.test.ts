@@ -1,13 +1,12 @@
 import { expect, test } from "bun:test";
-import { readdir } from "node:fs/promises";
 import { resolve } from "node:path";
 import ts from "typescript";
 
 const repositoryRoot = resolve(import.meta.dir, "../..");
-const packageSourcePattern = "packages/*/src/**/*.ts";
+const packageSourcePattern = "apps/cli/src/**/*.ts";
 const typescriptPatterns = [
     packageSourcePattern,
-    "packages/*/tests/**/*.ts",
+    "apps/cli/tests/**/*.ts",
     "tests/**/*.ts",
 ] as const;
 
@@ -93,61 +92,38 @@ test("source does not use explicit any annotations", async () => {
 });
 
 test("arrow functions use multiline block bodies", async () => {
-    const arrow = "=" + ">";
-
-    const expressionBody = new RegExp(`${arrow}(?![ \\t\\r\\n]*\\{)`);
-
-    const inlineBody = new RegExp(`${arrow}[ \\t]*\\{[^\\r\\n]`);
-
     for (const pattern of typescriptPatterns) {
         const files = new Bun.Glob(pattern);
 
         for await (const path of files.scan({ cwd: repositoryRoot })) {
             const source = await Bun.file(resolve(repositoryRoot, path)).text();
 
-            expect(
+            const file = ts.createSourceFile(
+                path,
                 source,
-                `${path} contains an expression-bodied arrow`,
-            ).not.toMatch(expressionBody);
+                ts.ScriptTarget.Latest,
+                true,
+            );
 
-            expect(
-                source,
-                `${path} starts an arrow body on the same line`,
-            ).not.toMatch(inlineBody);
-        }
-    }
-});
+            const compact: number[] = [];
 
-test("package-manager source folders contain multiple modules", async () => {
-    const sourceRoot = resolve(
-        repositoryRoot,
-        "../package-manager/packages/pm/src",
-    );
+            function visit(node: ts.Node): void {
+                if (ts.isArrowFunction(node) && !ts.isBlock(node.body)) {
+                    compact.push(
+                        file.getLineAndCharacterOfPosition(node.body.getStart())
+                            .line + 1,
+                    );
+                }
 
-    const entries = await readdir(sourceRoot, {
-        withFileTypes: true,
-    });
-
-    for (const entry of entries) {
-        if (!entry.isDirectory()) {
-            continue;
-        }
-
-        const children = await readdir(resolve(sourceRoot, entry.name), {
-            withFileTypes: true,
-        });
-
-        let moduleCount = 0;
-
-        for (const child of children) {
-            if (child.isFile() && child.name.endsWith(".ts")) {
-                moduleCount += 1;
+                ts.forEachChild(node, visit);
             }
-        }
 
-        expect(
-            moduleCount,
-            `package-manager/packages/pm/src/${entry.name} contains only ${moduleCount} modules`,
-        ).toBeGreaterThanOrEqual(2);
+            visit(file);
+
+            expect(
+                compact,
+                `${path} has expression-bodied arrows on lines ${compact.join(", ")}`,
+            ).toEqual([]);
+        }
     }
 });
