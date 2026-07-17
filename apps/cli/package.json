@@ -1,0 +1,59 @@
+{
+    "name": "@skylvi/wiz",
+    "version": "0.1.0",
+    "description": "Typed shell tooling and multi-source package management for shell projects",
+    "license": "MIT",
+    "author": "hazelcaffe",
+    "keywords": [
+        "bash",
+        "shell",
+        "package-manager",
+        "git",
+        "bun"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hazelcaffe/wiz.git",
+        "directory": "apps/cli"
+    },
+    "homepage": "https://github.com/hazelcaffe/wiz#readme",
+    "bugs": {
+        "url": "https://github.com/hazelcaffe/wiz/issues"
+    },
+    "type": "module",
+    "types": "./dist/index.d.ts",
+    "bin": {
+        "wiz": "./dist/cli.js"
+    },
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "default": "./dist/index.js"
+        }
+    },
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "scripts": {
+        "build": "bun build ./src/cli.ts --outdir ./dist --target bun --format esm && tsc --project ./tsconfig.build.json"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "engines": {
+        "bun": ">=1.2.0"
+    },
+    "dependencies": {
+        "@wiz/compiler": "workspace:*",
+        "@wiz/config": "workspace:*",
+        "@wiz/formatter": "workspace:*",
+        "@wiz/linter": "workspace:*",
+        "@wiz/lsp": "workspace:*",
+        "@wiz/pm": "workspace:*",
+        "@wiz/registry-client": "workspace:*",
+        "@wiz/runtime": "workspace:*",
+        "chalk": "^5.6.2"
+    }
+}
