@@ -1,7 +1,7 @@
 import { afterEach, expect, test } from "bun:test";
-import { realpath, rm, writeFile } from "node:fs/promises";
+import { mkdir, realpath, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import { temporaryDirectory } from "../../utils/filesystem.ts";
+import { executable, temporaryDirectory } from "../../utils/filesystem.ts";
 import { runCli } from "../../utils/process.ts";
 
 const roots: string[] = [];
@@ -18,6 +18,17 @@ test("Wiz CLI initializes, runs, maps, formats stdin, and validates options", as
     roots.push(root);
 
     const home = join(root, ".home");
+
+    const cliPath = new URL("../../../apps/cli/src/cli.ts", import.meta.url)
+        .pathname;
+
+    await mkdir(join(home, "bin"), { recursive: true });
+
+    // Generated scripts resolve runtime helpers through the installed CLI.
+    await executable(
+        join(home, "bin", "wiz"),
+        `#!/usr/bin/env bash\nexec bun ${JSON.stringify(cliPath)} "$@"\n`,
+    );
 
     const initialized = await runCli(root, ["c", "init"], home);
 
