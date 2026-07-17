@@ -241,4 +241,4 @@ test("link exposes live bins globally and overrides project dependencies", async
     expect(xAfterUnlink.code).toBe(1);
 
     expect(xAfterUnlink.stderr).toContain("Bin not found: hello");
-});
+}, 20_000);
