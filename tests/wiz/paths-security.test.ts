@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { parseManifest } from "../../../package-manager/packages/pm/src/project/manifest.ts";
+import { parseManifest } from "@wiz-sh/pm";
 
 test("manifest bins cannot traverse", () => {
     const manifestSource = JSON.stringify({

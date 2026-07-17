@@ -1,7 +1,4 @@
-import type {
-    DependencySpec,
-    PackageMetadata,
-} from "../../../package-manager/packages/pm/src/types.ts";
+import type { DependencySpec, PackageMetadata } from "@wiz-sh/pm";
 
 interface ManifestOptions {
     package?: Omit<PackageMetadata, "name">;
