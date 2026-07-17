@@ -23,7 +23,7 @@ jobs:
         runs-on: ubuntu-latest
         timeout-minutes: 15
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
             - uses: oven-sh/setup-bun@v2
               with:
                   bun-version: ${{ env.BUN_VERSION }}
@@ -44,7 +44,7 @@ jobs:
         runs-on: ${{ matrix.os }}
         timeout-minutes: 20
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
             - uses: oven-sh/setup-bun@v2
               with:
                   bun-version: ${{ env.BUN_VERSION }}
@@ -63,7 +63,7 @@ jobs:
         runs-on: windows-latest
         timeout-minutes: 15
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
             - uses: oven-sh/setup-bun@v2
               with:
                   bun-version: ${{ env.BUN_VERSION }}
@@ -76,7 +76,7 @@ jobs:
         runs-on: ubuntu-latest
         timeout-minutes: 20
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
             - uses: oven-sh/setup-bun@v2
               with:
                   bun-version: ${{ env.BUN_VERSION }}
@@ -90,13 +90,13 @@ jobs:
         runs-on: ubuntu-latest
         timeout-minutes: 15
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
             - uses: oven-sh/setup-bun@v2
               with:
                   bun-version: ${{ env.BUN_VERSION }}
             - run: bun install --frozen-lockfile
             - run: bun run --cwd apps/docs build
-            - uses: actions/upload-artifact@v4
+            - uses: actions/upload-artifact@v7
               with:
                   name: wiz-docs
                   path: apps/docs/dist
@@ -108,7 +108,7 @@ jobs:
         runs-on: ubuntu-latest
         timeout-minutes: 15
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
             - uses: oven-sh/setup-bun@v2
               with:
                   bun-version: ${{ env.BUN_VERSION }}
@@ -116,7 +116,7 @@ jobs:
             - run: bun run --cwd apps/vscode test
             - run: bun run --cwd apps/vscode build
             - run: bun run --cwd apps/vscode package
-            - uses: actions/upload-artifact@v4
+            - uses: actions/upload-artifact@v7
               with:
                   name: wiz-vscode-extension
                   path: apps/vscode/*.vsix
@@ -128,7 +128,7 @@ jobs:
         runs-on: ubuntu-latest
         timeout-minutes: 40
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v7
             - uses: oven-sh/setup-bun@v2
               with:
                   bun-version: ${{ env.BUN_VERSION }}
