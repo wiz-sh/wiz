@@ -72,6 +72,27 @@ test("Wiz CLI initializes, runs, maps, formats stdin, and validates options", as
 
     expect((await runCli(root, ["c", "build"], home)).code).toBe(0);
 
+    await writeFile(
+        join(root, "src/main.wiz"),
+        "declare command curl(host: string): stream\n\ncommand -p curl https://example.com\n",
+    );
+
+    expect((await runCli(root, ["c", "build"], home)).code).toBe(0);
+
+    const emittedDeclarationFile = await Bun.file(
+        join(root, "dist/main.sh"),
+    ).text();
+
+    expect(emittedDeclarationFile).not.toContain("declare command");
+
+    const syntaxCheck = Bun.spawn(["bash", "-n", join(root, "dist/main.sh")], {
+        cwd: root,
+        stdout: "pipe",
+        stderr: "pipe",
+    });
+
+    expect(await syntaxCheck.exited).toBe(0);
+
     const mapped = await runCli(root, ["c", "map", "dist/main.sh:3"], home);
 
     expect(mapped.code).toBe(0);
@@ -95,6 +116,36 @@ test("Wiz CLI initializes, runs, maps, formats stdin, and validates options", as
 
     expect((await runCli(root, ["c", "lsp"], home)).stderr).toContain(
         "wiz c lsp --stdio",
+    );
+
+    await writeFile(join(root, "src/main.wiz"), 'echo "hi"\n');
+
+    expect((await runCli(root, ["c", "build"], home)).code).toBe(0);
+
+    await writeFile(
+        join(root, "src/main.wiz"),
+        'declare -T string path="$(wiz root)"\n\necho -n "$path"\n',
+    );
+
+    const typedRoot = await runCli(root, ["src/main.wiz"], home);
+
+    expect(typedRoot).toMatchObject({
+        code: 0,
+        stdout: canonicalRoot,
+        stderr: "",
+    });
+
+    await writeFile(
+        join(root, "src/main.wiz"),
+        'example(): string {\n    local string root=wiz\n    printf "%s\\n" "$root"\n}\n',
+    );
+
+    const invalidLocal = await runCli(root, ["check"], home);
+
+    expect(invalidLocal.code).toBe(1);
+
+    expect(invalidLocal.stderr).toContain(
+        "Typed local declarations require -T before string",
     );
 });
 

@@ -6,33 +6,33 @@
       "name": "@wiz-sh/cli-workspace",
       "devDependencies": {
         "@biomejs/biome": "^2.2.0",
-        "@wiz-sh/compiler": "^0.1.0",
+        "@wiz-sh/compiler": "^0.1.3",
         "@wiz-sh/config": "^0.1.0",
         "@wiz-sh/formatter": "^0.1.0",
         "@wiz-sh/language-service": "^0.1.0",
         "@wiz-sh/linter": "^0.1.0",
-        "@wiz-sh/lsp": "^0.1.0",
-        "@wiz-sh/pm": "^0.1.0",
+        "@wiz-sh/lsp": "^0.1.1",
+        "@wiz-sh/pm": "^0.1.1",
         "@wiz-sh/registry-client": "^0.1.0",
         "@wiz-sh/runtime": "^0.1.0",
-        "@wiz-sh/types": "^0.1.0",
+        "@wiz-sh/types": "^0.1.1",
         "bun-types": "^1.2.19",
         "typescript": "^5.9.2",
       },
     },
     "apps/cli": {
       "name": "@wiz-sh/wiz",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "bin": {
         "wiz": "./dist/cli.js",
       },
       "dependencies": {
-        "@wiz-sh/compiler": "^0.1.0",
+        "@wiz-sh/compiler": "^0.1.3",
         "@wiz-sh/config": "^0.1.0",
         "@wiz-sh/formatter": "^0.1.0",
         "@wiz-sh/linter": "^0.1.0",
-        "@wiz-sh/lsp": "^0.1.0",
-        "@wiz-sh/pm": "^0.1.0",
+        "@wiz-sh/lsp": "^0.1.1",
+        "@wiz-sh/pm": "^0.1.1",
         "@wiz-sh/registry-client": "^0.1.0",
         "@wiz-sh/runtime": "^0.1.0",
         "chalk": "^5.6.2",
@@ -60,7 +60,7 @@
 
     "@types/node": ["@types/node@26.1.1", "", { "dependencies": { "undici-types": "~8.3.0" } }, "sha512-nxAkRSVkN1Y0JC1W8ky/fTfkGsMmcrRsbx+3XoZE+rMOX71kLYTV7fLXpqud1GpbpP5TuffXFqfX7fH2GgZREw=="],
 
-    "@wiz-sh/compiler": ["@wiz-sh/compiler@0.1.0", "", { "dependencies": { "@wiz-sh/config": "^0.1.0", "@wiz-sh/types": "^0.1.0" } }, "sha512-NZ5jtQJP0T2+8ZZtKFTo/XISDLKECvbTUEwTtrDUj4UsOgLFi3sLeStEny83HzHwsMeRGPKDbyg4Sm3jhKwBvA=="],
+    "@wiz-sh/compiler": ["@wiz-sh/compiler@0.1.3", "", { "dependencies": { "@wiz-sh/config": "^0.1.0", "@wiz-sh/types": "^0.1.1" } }, "sha512-9e0mR+KbGZb61p6Xe4CjqtOY9eHw34wJZ8RlOv155QD2Rw/ldX7T18AopTA4O0M5+pUQ2rkhuXppH+ZoPFoE6Q=="],
 
     "@wiz-sh/config": ["@wiz-sh/config@0.1.0", "", {}, "sha512-VWFQgqGQ1y1upZO4uT0LWUVmvkD0b55A2zKMeG9tOHk1wgYTHPD8/m3Q39Lvv0RScqax+27wgcmOQpxn/mRnMg=="],
 
@@ -70,15 +70,15 @@
 
     "@wiz-sh/linter": ["@wiz-sh/linter@0.1.0", "", { "dependencies": { "@wiz-sh/compiler": "^0.1.0" } }, "sha512-npfgwQfxNzG2SiyqLk26x1X0NciGoG4YkneK6j0UgpYQErYfY9lprjU2Ayj4F8qcwt8fk1m1lAQsbNq4voEyEw=="],
 
-    "@wiz-sh/lsp": ["@wiz-sh/lsp@0.1.0", "", { "dependencies": { "@wiz-sh/config": "^0.1.0", "@wiz-sh/language-service": "^0.1.0" }, "bin": { "wiz-lsp": "dist/index.js" } }, "sha512-mVUlzMSYEw79HYHBfBQ7806pLJYNFYClcm+jvHwF0SWEduXj2hjNzxJKJ9mfUGHW9t20SYzly3unjgQeGofAqw=="],
+    "@wiz-sh/lsp": ["@wiz-sh/lsp@0.1.1", "", { "dependencies": { "@wiz-sh/config": "^0.1.0", "@wiz-sh/language-service": "^0.1.1" }, "bin": { "wiz-lsp": "dist/index.js" } }, "sha512-Pw4iAQqLAnu0Va2Ljgqff/hK99UDp/SLaKod8RHgoejjx9GvuDnXfgus2i/S/h9RFusjIHdGTZ38m0Sx72x35w=="],
 
-    "@wiz-sh/pm": ["@wiz-sh/pm@0.1.0", "", { "dependencies": { "@wiz-sh/registry-client": "^0.1.0" } }, "sha512-aMo382CFwzdYUhqKGNQJ5uzMF5h3unniRkjId7oGGbC3THjUePJpabUDFjGKi5QF+YtgPb0HNO4rR3RKyUtMyA=="],
+    "@wiz-sh/pm": ["@wiz-sh/pm@0.1.1", "", { "dependencies": { "@wiz-sh/registry-client": "^0.1.0", "@wiz-sh/types": "^0.1.1" } }, "sha512-K68qYSltkZ8eHHs4cjrc05r6O9nCMGnHPxCSllfPMStiMZa9NbdFPJopS4nLyAgS5SPGJnnejI/VdOP3xDOdWQ=="],
 
     "@wiz-sh/registry-client": ["@wiz-sh/registry-client@0.1.0", "", {}, "sha512-R1wdBkeUXkS3R+Hd99ySP10XuNoXPdLwahBplK+oboJbeGipFpMDiHCBVysOERc0Ci/p1vBnKVlMxNvnVjmbew=="],
 
     "@wiz-sh/runtime": ["@wiz-sh/runtime@0.1.0", "", { "dependencies": { "@wiz-sh/pm": "^0.1.0" } }, "sha512-zWzcT4cxOZ1gi5LuRd7RBdXE3/F3R7gUVNv3vjBjd3GFWl167h7CFOB26MjX5JuJ3NPVXgNM3Lmk0bX4krinIA=="],
 
-    "@wiz-sh/types": ["@wiz-sh/types@0.1.0", "", {}, "sha512-IZr+D79f4P0spQSTiQTv2fG6W811p1QUQW5DRhPVjoYQG5Zg9tKhrW6fd03HHs2ag1v92DYjIPI4HIBuxvEfoQ=="],
+    "@wiz-sh/types": ["@wiz-sh/types@0.1.1", "", {}, "sha512-6EoVkG2xZtFudd3ohAaCz88H+NZofzPFmbS+IhZO9BbCEGQ4+Fe0XkijcNbRNom/4RZthIcze/Q+PS3bdMKCCg=="],
 
     "@wiz-sh/wiz": ["@wiz-sh/wiz@workspace:apps/cli"],
 
@@ -89,5 +89,21 @@
     "typescript": ["typescript@5.9.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw=="],
 
     "undici-types": ["undici-types@8.3.0", "", {}, "sha512-j375ScV60dom+YkPFIfTLcOiPxkN/buHz5GobjLhixFuANaNs3C9l4GmrWqejgXWJ7BbJcFYpTEUkS1Ge8bpZQ=="],
+
+    "@wiz-sh/formatter/@wiz-sh/compiler": ["@wiz-sh/compiler@0.1.0", "", { "dependencies": { "@wiz-sh/config": "^0.1.0", "@wiz-sh/types": "^0.1.0" } }, "sha512-NZ5jtQJP0T2+8ZZtKFTo/XISDLKECvbTUEwTtrDUj4UsOgLFi3sLeStEny83HzHwsMeRGPKDbyg4Sm3jhKwBvA=="],
+
+    "@wiz-sh/language-service/@wiz-sh/compiler": ["@wiz-sh/compiler@0.1.0", "", { "dependencies": { "@wiz-sh/config": "^0.1.0", "@wiz-sh/types": "^0.1.0" } }, "sha512-NZ5jtQJP0T2+8ZZtKFTo/XISDLKECvbTUEwTtrDUj4UsOgLFi3sLeStEny83HzHwsMeRGPKDbyg4Sm3jhKwBvA=="],
+
+    "@wiz-sh/linter/@wiz-sh/compiler": ["@wiz-sh/compiler@0.1.0", "", { "dependencies": { "@wiz-sh/config": "^0.1.0", "@wiz-sh/types": "^0.1.0" } }, "sha512-NZ5jtQJP0T2+8ZZtKFTo/XISDLKECvbTUEwTtrDUj4UsOgLFi3sLeStEny83HzHwsMeRGPKDbyg4Sm3jhKwBvA=="],
+
+    "@wiz-sh/lsp/@wiz-sh/language-service": ["@wiz-sh/language-service@0.1.1", "", { "dependencies": { "@wiz-sh/compiler": "^0.1.2", "@wiz-sh/formatter": "^0.1.0", "@wiz-sh/linter": "^0.1.0" } }, "sha512-hq+4+KJgNLSy6MAMQeKgvit7OtrJVSsdZDwDx9x5sdv/ITf/GDsmx3T2z4v88f96NNW/tcepVgMQOIEkft4q9g=="],
+
+    "@wiz-sh/runtime/@wiz-sh/pm": ["@wiz-sh/pm@0.1.0", "", { "dependencies": { "@wiz-sh/registry-client": "^0.1.0" } }, "sha512-aMo382CFwzdYUhqKGNQJ5uzMF5h3unniRkjId7oGGbC3THjUePJpabUDFjGKi5QF+YtgPb0HNO4rR3RKyUtMyA=="],
+
+    "@wiz-sh/formatter/@wiz-sh/compiler/@wiz-sh/types": ["@wiz-sh/types@0.1.0", "", {}, "sha512-IZr+D79f4P0spQSTiQTv2fG6W811p1QUQW5DRhPVjoYQG5Zg9tKhrW6fd03HHs2ag1v92DYjIPI4HIBuxvEfoQ=="],
+
+    "@wiz-sh/language-service/@wiz-sh/compiler/@wiz-sh/types": ["@wiz-sh/types@0.1.0", "", {}, "sha512-IZr+D79f4P0spQSTiQTv2fG6W811p1QUQW5DRhPVjoYQG5Zg9tKhrW6fd03HHs2ag1v92DYjIPI4HIBuxvEfoQ=="],
+
+    "@wiz-sh/linter/@wiz-sh/compiler/@wiz-sh/types": ["@wiz-sh/types@0.1.0", "", {}, "sha512-IZr+D79f4P0spQSTiQTv2fG6W811p1QUQW5DRhPVjoYQG5Zg9tKhrW6fd03HHs2ag1v92DYjIPI4HIBuxvEfoQ=="],
   }
 }

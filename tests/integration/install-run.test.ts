@@ -294,6 +294,48 @@ test("install, lock, x, index and resolve workflow", async () => {
     expect(manifestAfterRemoval).toContain('"dependencies": {}');
 });
 
+test("official type packages install from Wiz without a registry", async () => {
+    const root = await createTestRoot();
+
+    const home = join(root, "home");
+
+    const project = await createProject(
+        root,
+        manifest("project", {
+            registries: { default: "http://127.0.0.1:1" },
+        }),
+    );
+
+    const result = await runCli(project, ["i", "@types/common"], home);
+
+    const savedManifest = await readFile(
+        join(project, "manifest.json"),
+        "utf8",
+    );
+
+    const installedIndex = join(
+        project,
+        "wiz_modules",
+        "@types",
+        "common",
+        "index.d.wiz",
+    );
+
+    expect(result).toMatchObject({
+        code: 0,
+        stdout: "Added @types/common\n",
+        stderr: "",
+    });
+
+    expect(savedManifest).toContain('"builtin": "types"');
+
+    expect(await Bun.file(installedIndex).exists()).toBe(true);
+
+    expect(
+        (await runCli(project, ["install", "--frozen-lockfile"], home)).code,
+    ).toBe(0);
+});
+
 test("run and script forward arguments and exit codes", async () => {
     const root = await createTestRoot();
 

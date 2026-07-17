@@ -1,4 +1,4 @@
-import type { DependencySpec, PackageMetadata } from "@wiz-sh/pm";
+import type { DependencySpec, Manifest, PackageMetadata } from "@wiz-sh/pm";
 
 interface ManifestOptions {
     package?: Omit<PackageMetadata, "name">;
@@ -6,6 +6,7 @@ interface ManifestOptions {
     bin?: Record<string, string>;
     dependencies?: Record<string, DependencySpec>;
     workspaces?: readonly string[];
+    registries?: Manifest["registries"];
 }
 
 export function manifest(name: string, options: ManifestOptions = {}): string {
@@ -21,6 +22,9 @@ export function manifest(name: string, options: ManifestOptions = {}): string {
         ...(options.workspaces === undefined
             ? {}
             : { workspaces: options.workspaces }),
+        ...(options.registries === undefined
+            ? {}
+            : { registries: options.registries }),
     };
 
     return `${JSON.stringify(value, null, 4)}\n`;
