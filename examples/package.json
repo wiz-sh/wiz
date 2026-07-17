@@ -1,5 +1,5 @@
 {
-    "name": "@wiz/examples",
+    "name": "@wiz-sh/examples",
     "private": true,
     "type": "module",
     "scripts": {

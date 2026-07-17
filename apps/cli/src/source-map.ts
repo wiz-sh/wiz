@@ -1,5 +1,5 @@
-import { loadSourceMap, mapGeneratedToSource } from "@wiz/compiler";
-import { WizError } from "@wiz/pm";
+import { loadSourceMap, mapGeneratedToSource } from "@wiz-sh/compiler";
+import { WizError } from "@wiz-sh/pm";
 
 /** Maps a generated shell line back to its original Wiz source position. */
 export async function mapPosition(value: string | undefined): Promise<number> {

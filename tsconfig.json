@@ -11,34 +11,34 @@
         "verbatimModuleSyntax": true,
         "allowImportingTsExtensions": true,
         "paths": {
-            "@wiz/compiler": [
+            "@wiz-sh/compiler": [
                 "../compiler/packages/compiler/src/index.ts"
             ],
-            "@wiz/config": [
+            "@wiz-sh/config": [
                 "../compiler/packages/config/src/index.ts"
             ],
-            "@wiz/formatter": [
+            "@wiz-sh/formatter": [
                 "../linter/packages/formatter/src/index.ts"
             ],
-            "@wiz/language-service": [
+            "@wiz-sh/language-service": [
                 "../lsp/packages/language-service/src/index.ts"
             ],
-            "@wiz/linter": [
+            "@wiz-sh/linter": [
                 "../linter/packages/linter/src/index.ts"
             ],
-            "@wiz/lsp": [
+            "@wiz-sh/lsp": [
                 "../lsp/packages/lsp/src/index.ts"
             ],
-            "@wiz/pm": [
+            "@wiz-sh/pm": [
                 "../package-manager/packages/pm/src/index.ts"
             ],
-            "@wiz/registry-client": [
+            "@wiz-sh/registry-client": [
                 "../registry/packages/registry-client/src/index.ts"
             ],
-            "@wiz/runtime": [
+            "@wiz-sh/runtime": [
                 "../package-manager/packages/runtime/src/index.ts"
             ],
-            "@wiz/types/*": [
+            "@wiz-sh/types/*": [
                 "../types/wiz/types/*"
             ]
         },

@@ -1,6 +1,6 @@
-import type { AddOptions, AddRegistryOptions } from "@wiz/pm";
-import { WizError } from "@wiz/pm";
-import type { DlxOptions } from "@wiz/runtime";
+import type { AddOptions, AddRegistryOptions } from "@wiz-sh/pm";
+import { WizError } from "@wiz-sh/pm";
+import type { DlxOptions } from "@wiz-sh/runtime";
 
 export interface ParsedDlxArguments {
     options: DlxOptions;

@@ -1,7 +1,7 @@
 import { afterEach, expect, test } from "bun:test";
 import { cp, readFile, rm } from "node:fs/promises";
 import { join } from "node:path";
-import { LanguageService } from "@wiz/language-service";
+import { LanguageService } from "@wiz-sh/language-service";
 import { temporaryDirectory } from "../../utils/filesystem.ts";
 import { runCli } from "../../utils/process.ts";
 

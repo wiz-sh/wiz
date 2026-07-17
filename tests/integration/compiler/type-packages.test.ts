@@ -4,8 +4,8 @@ import {
     bindSourceFile,
     checkSourceFile,
     parseSourceFile,
-} from "@wiz/compiler";
-import { parseManifest } from "@wiz/pm";
+} from "@wiz-sh/compiler";
+import { parseManifest } from "@wiz-sh/pm";
 import { Glob } from "bun";
 
 const repositoryRoot = resolve(import.meta.dir, "../../..");

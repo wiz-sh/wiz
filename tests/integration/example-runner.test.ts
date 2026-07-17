@@ -1,6 +1,6 @@
 import { expect, test } from "bun:test";
 import { dirname, join } from "node:path";
-import { parseManifest } from "@wiz/pm";
+import { parseManifest } from "@wiz-sh/pm";
 
 const runner = join(import.meta.dir, "../../examples/cli.ts");
 

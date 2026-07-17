@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 import { dirname } from "node:path";
 import { createInterface } from "node:readline/promises";
-import { discoverConfig } from "@wiz/config";
+import { discoverConfig } from "@wiz-sh/config";
 import {
     add,
     addRegistry,
@@ -33,8 +33,8 @@ import {
     verifyCache,
     WizError,
     why,
-} from "@wiz/pm";
-import { dlx, indexPath, needs, run, script, x } from "@wiz/runtime";
+} from "@wiz-sh/pm";
+import { dlx, indexPath, needs, run, script, x } from "@wiz-sh/runtime";
 import chalk from "chalk";
 import {
     parseDlxArguments,

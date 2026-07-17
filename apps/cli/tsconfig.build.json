@@ -7,28 +7,28 @@
         "outDir": "./dist",
         "rootDir": "./src",
         "paths": {
-            "@wiz/pm": [
+            "@wiz-sh/pm": [
                 "../../../package-manager/packages/pm/dist/index.d.ts"
             ],
-            "@wiz/runtime": [
+            "@wiz-sh/runtime": [
                 "../../../package-manager/packages/runtime/dist/index.d.ts"
             ],
-            "@wiz/compiler": [
+            "@wiz-sh/compiler": [
                 "../../../compiler/packages/compiler/dist/index.d.ts"
             ],
-            "@wiz/config": [
+            "@wiz-sh/config": [
                 "../../../compiler/packages/config/dist/index.d.ts"
             ],
-            "@wiz/formatter": [
+            "@wiz-sh/formatter": [
                 "../../../linter/packages/formatter/dist/index.d.ts"
             ],
-            "@wiz/linter": [
+            "@wiz-sh/linter": [
                 "../../../linter/packages/linter/dist/index.d.ts"
             ],
-            "@wiz/lsp": [
+            "@wiz-sh/lsp": [
                 "../../../lsp/packages/lsp/dist/index.d.ts"
             ],
-            "@wiz/registry-client": [
+            "@wiz-sh/registry-client": [
                 "../../../registry/packages/registry-client/dist/index.d.ts"
             ]
         }

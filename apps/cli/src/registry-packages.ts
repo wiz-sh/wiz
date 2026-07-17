@@ -1,11 +1,11 @@
 import { createHash } from "node:crypto";
-import { readProject, WizError } from "@wiz/pm";
+import { readProject, WizError } from "@wiz-sh/pm";
 import {
     loadUserRegistryConfig,
     RegistryClient,
     RegistryError,
     selectRegistry,
-} from "@wiz/registry-client";
+} from "@wiz-sh/registry-client";
 
 function selectedClient(
     packageName: string,

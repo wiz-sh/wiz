@@ -1,4 +1,4 @@
-import { WizError } from "@wiz/pm";
+import { WizError } from "@wiz-sh/pm";
 import {
     loadUserRegistryConfig,
     normalizeRegistryUrl,
@@ -8,7 +8,7 @@ import {
     selectRegistry,
     type UserRegistryConfig,
     userConfigPath,
-} from "@wiz/registry-client";
+} from "@wiz-sh/registry-client";
 
 function required(value: string | undefined, label: string): string {
     if (value === undefined || value.trim() === "") {

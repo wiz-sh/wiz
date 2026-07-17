@@ -6,8 +6,8 @@ Read `WIZ.md` for the product model before changing public behavior.
 
 This repository owns the `wiz` command-line application and the cross-product
 integration suite under `tests/`. Keep the application thin: package operations
-belong in `@wiz/pm`, execution in `@wiz/runtime`, compilation in
-`@wiz/compiler`, and editor protocol behavior in `@wiz/lsp`. The aggregate
+belong in `@wiz-sh/pm`, execution in `@wiz-sh/runtime`, compilation in
+`@wiz-sh/compiler`, and editor protocol behavior in `@wiz-sh/lsp`. The aggregate
 examples live here because they exercise the public CLI across those packages.
 
 ## Engineering rules

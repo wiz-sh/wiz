@@ -6,12 +6,12 @@ import {
     emitProgram,
     getDiagnostics,
     parseSourceFile,
-} from "@wiz/compiler";
-import { loadConfig, type WizConfig } from "@wiz/config";
-import { formatSourceFile, minifySourceFile } from "@wiz/formatter";
-import { applyLintFixes, lintSourceFile } from "@wiz/linter";
-import { serveStdio } from "@wiz/lsp";
-import { WizError } from "@wiz/pm";
+} from "@wiz-sh/compiler";
+import { loadConfig, type WizConfig } from "@wiz-sh/config";
+import { formatSourceFile, minifySourceFile } from "@wiz-sh/formatter";
+import { applyLintFixes, lintSourceFile } from "@wiz-sh/linter";
+import { serveStdio } from "@wiz-sh/lsp";
+import { WizError } from "@wiz-sh/pm";
 import { mapPosition } from "./source-map.ts";
 
 export const COMPILER_HELP = `Usage: wiz c <command> [options]
